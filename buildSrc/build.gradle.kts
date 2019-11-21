@@ -11,3 +11,10 @@ repositories {
 kotlinDslPluginOptions {
     experimentalWarning.set(false)
 }
+
+
+open class BluesquarePlugin : Plugin<Project> {
+    override fun apply(project: Project) {
+
+    }
+}
