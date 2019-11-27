@@ -1,7 +1,7 @@
 import core.*
 
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("kotlin-android")
     id("kotlin-android-extensions")
 }
@@ -15,41 +15,48 @@ android {
         versionCode = Config.VERSION_CODE
         versionName = Config.VERSION_NAME
 
+        testInstrumentationRunner = Dependencies.Tests.instrumentation_runner
+        consumerProguardFiles(Dependencies.Proguard.consumer_rules)
+
         buildTypes {
             getByName("release") {
                 isMinifyEnabled = false
-                proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+                proguardFiles(
+                    getDefaultProguardFile("proguard-android.txt"),
+                    Dependencies.Proguard.proguard_rules
+                )
             }
         }
     }
+
 }
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
-    implementation(Dependencies.Kotlin.kotlin_std)
-    implementation(Dependencies.Kotlin.coroutines)
+    api(Dependencies.Kotlin.kotlin_std)
+    api(Dependencies.Kotlin.coroutines)
 
-    implementation(Dependencies.AndroidXLibraries.appcompat)
-    implementation(Dependencies.AndroidXLibraries.ktx_core)
-    implementation(Dependencies.AndroidXLibraries.constraint_layout)
-    implementation(Dependencies.AndroidXLibraries.preferences)
-    implementation(Dependencies.AndroidXLibraries.preferences_ktx)
-    implementation(Dependencies.AndroidXLibraries.multidex)
+    api(Dependencies.AndroidXLibraries.appcompat)
+    api(Dependencies.AndroidXLibraries.ktx_core)
+    api(Dependencies.AndroidXLibraries.constraint_layout)
+    api(Dependencies.AndroidXLibraries.preferences)
+    api(Dependencies.AndroidXLibraries.preferences_ktx)
+    api(Dependencies.AndroidXLibraries.multidex)
 
-    implementation(Dependencies.ThirdPartyLibs.glide)
+    api(Dependencies.ThirdPartyLibs.glide)
     implementation(Dependencies.ThirdPartyLibs.retrofit)
     implementation(Dependencies.ThirdPartyLibs.retrofit_converter_gson)
     implementation(Dependencies.ThirdPartyLibs.retrofit_converter_scalars)
     implementation(Dependencies.ThirdPartyLibs.retrofit_logging_interceptor)
     implementation(Dependencies.ThirdPartyLibs.joda_time)
 
-    implementation(Dependencies.ThirdPartyLibs.koin_android)
-    implementation(Dependencies.ThirdPartyLibs.koin_androidx_extensions)
-    implementation(Dependencies.ThirdPartyLibs.koin_androidx_viewmodel)
-    implementation(Dependencies.ThirdPartyLibs.koin_androidx_scope)
+    api(Dependencies.ThirdPartyLibs.koin_android)
+    api(Dependencies.ThirdPartyLibs.koin_androidx_extensions)
+    api(Dependencies.ThirdPartyLibs.koin_androidx_viewmodel)
+    api(Dependencies.ThirdPartyLibs.koin_androidx_scope)
 
-    testImplementation(Dependencies.Tests.junit)
-    androidTestImplementation(Dependencies.Tests.junit_androidx_extension)
-    androidTestImplementation(Dependencies.Tests.espresso_extension_version)
+    api(Dependencies.Tests.junit) //testApi
+    api(Dependencies.Tests.junit_androidx_extension) // testImplementation
+    api(Dependencies.Tests.espresso_extension_version) // testImplementation
 }

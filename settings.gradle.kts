@@ -1,2 +1,2 @@
-include(":app", "core", ":home")
+include(":app", ":core", ":home", ":player")
 rootProject.name = "FreeIPTV"

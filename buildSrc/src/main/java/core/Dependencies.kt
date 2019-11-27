@@ -59,8 +59,9 @@ object Dependencies {
 
         const val koin_android = "org.koin:koin-android:${Versions.koin_version}"
         const val koin_androidx_scope = "org.koin:koin-androidx-scope:${Versions.koin_version}"
-        const val koin_androidx_viewmodel = "org.koin:koin-androidx-viewmodel:${Versions.koin_version}"
-        const val koin_androidx_extensions  = "org.koin:koin-androidx-ext:${Versions.koin_version}"
+        const val koin_androidx_viewmodel =
+            "org.koin:koin-androidx-viewmodel:${Versions.koin_version}"
+        const val koin_androidx_extensions = "org.koin:koin-androidx-ext:${Versions.koin_version}"
 
         const val glide = "com.github.bumptech.glide:glide:${Versions.lib_glide_version}"
     }
