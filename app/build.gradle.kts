@@ -4,6 +4,7 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-android-extensions")
+    id("kotlin-kapt")
 }
 
 android {
@@ -30,6 +31,10 @@ android {
     lintOptions {
         disable("InvalidPackage"/* Some libraries have issues with this*/, "ParcelCreator")
 //        xmlOutput  = file ("$project.buildDir/reports/lint/lint-report.xml")
+    }
+
+    dataBinding {
+        isEnabled = true
     }
 
     androidExtensions {

@@ -24,8 +24,9 @@ object Dependencies {
         const val retrofit_logging_interceptor_version = "4.2.1"
 
         const val koin_version = "2.0.1"
+        const val lottie_version = "3.3.1"
 
-        const val lib_glide_version = "4.9.0"
+        const val lib_glide_version = "4.11.0"
         const val lib_play_services_version = "15.0.1"
         const val lib_material_version = "1.0.0"
         const val lib_apache_vesion = "3.7"
@@ -64,6 +65,11 @@ object Dependencies {
         const val koin_androidx_extensions = "org.koin:koin-androidx-ext:${Versions.koin_version}"
 
         const val glide = "com.github.bumptech.glide:glide:${Versions.lib_glide_version}"
+        const val glide_compiler =
+            "com.github.bumptech.glide:compiler:${Versions.lib_glide_version}"
+        const val glide_okhttp_integration =
+            "com.github.bumptech.glide:okhttp3-integration:${Versions.lib_glide_version}"
+        const val lottie = "com.airbnb.android:lottie:${Versions.lottie_version}"
     }
 
     object Kotlin {

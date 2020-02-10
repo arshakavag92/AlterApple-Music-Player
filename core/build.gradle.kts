@@ -4,6 +4,7 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-android-extensions")
+    id("kotlin-kapt")
 }
 
 android {
@@ -27,8 +28,11 @@ android {
                 )
             }
         }
-    }
 
+        dataBinding {
+            isEnabled = true
+        }
+    }
 }
 
 dependencies {
@@ -44,12 +48,18 @@ dependencies {
     api(Dependencies.AndroidXLibraries.preferences_ktx)
     api(Dependencies.AndroidXLibraries.multidex)
 
+    kapt(Dependencies.ThirdPartyLibs.glide_compiler)
     api(Dependencies.ThirdPartyLibs.glide)
-    implementation(Dependencies.ThirdPartyLibs.retrofit)
-    implementation(Dependencies.ThirdPartyLibs.retrofit_converter_gson)
-    implementation(Dependencies.ThirdPartyLibs.retrofit_converter_scalars)
-    implementation(Dependencies.ThirdPartyLibs.retrofit_logging_interceptor)
-    implementation(Dependencies.ThirdPartyLibs.joda_time)
+
+    api(Dependencies.ThirdPartyLibs.glide_okhttp_integration) {
+        exclude("glide-parent")
+    }
+    api(Dependencies.ThirdPartyLibs.retrofit)
+    api(Dependencies.ThirdPartyLibs.retrofit_converter_gson)
+    api(Dependencies.ThirdPartyLibs.retrofit_converter_scalars)
+    api(Dependencies.ThirdPartyLibs.retrofit_logging_interceptor)
+    api(Dependencies.ThirdPartyLibs.joda_time)
+    api(Dependencies.ThirdPartyLibs.lottie)
 
     api(Dependencies.ThirdPartyLibs.koin_android)
     api(Dependencies.ThirdPartyLibs.koin_androidx_extensions)
