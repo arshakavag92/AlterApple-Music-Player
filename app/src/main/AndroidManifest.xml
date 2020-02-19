@@ -15,10 +15,21 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name="com.arshak.freeiptv.splash.view.activity.SplashActivity"
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".authentication.view.activity.AppleAuthorisationActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".main.view.MainNavigationActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,6 +1,7 @@
 package com.arshak.freeiptv.di
 
 import com.arshak.core.data.network.AppleHttpClient
+import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 
 /**
@@ -13,5 +14,11 @@ object ApplicationModule {
         single { AppleHttpClient.httpClient }
     }
 
-    val allModules = mutableListOf(retrofitModule)
+    val contextModule = module {
+        single {
+            androidApplication()
+        }
+    }
+
+    val allModules = mutableListOf(contextModule, retrofitModule, AuthorisationModule.module, NavigationModule.navigationModule)
 }

@@ -3,7 +3,9 @@
     package="com.arshak.core">
 
     <application>
-        <activity android:name=".view.screens.HomeActivity"></activity>
+        <activity
+            android:name=".view.screens.HomeActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

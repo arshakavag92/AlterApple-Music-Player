@@ -9,8 +9,9 @@ buildscript {
 
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:3.5.2")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.60")
+        classpath(core.Dependencies.Plugins.gradle)
+        classpath(core.Dependencies.Plugins.kotlin_gradle_plugin)
+        classpath(core.Dependencies.Plugins.navigation_safeargs_plugin)
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle.kts files

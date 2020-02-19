@@ -47,6 +47,10 @@ dependencies {
     api(Dependencies.AndroidXLibraries.preferences)
     api(Dependencies.AndroidXLibraries.preferences_ktx)
     api(Dependencies.AndroidXLibraries.multidex)
+    api(Dependencies.AndroidXLibraries.navigation_ui)
+    api(Dependencies.AndroidXLibraries.navigation_ui_ktx)
+    api(Dependencies.AndroidXLibraries.navigation_fragment)
+    api(Dependencies.AndroidXLibraries.navigation_fragment_ktx)
 
     kapt(Dependencies.ThirdPartyLibs.glide_compiler)
     api(Dependencies.ThirdPartyLibs.glide)
@@ -65,6 +69,7 @@ dependencies {
     api(Dependencies.ThirdPartyLibs.koin_androidx_extensions)
     api(Dependencies.ThirdPartyLibs.koin_androidx_viewmodel)
     api(Dependencies.ThirdPartyLibs.koin_androidx_scope)
+    api(Dependencies.ThirdPartyLibs.secure_preferences)
 
     api(Dependencies.Tests.junit) //testApi
     api(Dependencies.Tests.junit_androidx_extension) // testImplementation

@@ -3,7 +3,11 @@ package core
 object Dependencies {
 
     object Versions {
+
+        // Plugins
         const val kotlin_verion = "1.3.50"
+        const val kotlin_gradle_plugin_version = "1.3.61"
+        const val gradle = "3.5.3"
 
         // AndroidX Dpendncies
         const val androidx_appcompat_version = "1.1.0"
@@ -15,10 +19,12 @@ object Dependencies {
         const val androidx_preferences_version = "1.1.0"
         const val androidx_architecture_components_version = "2.1.0"
 
+        // For Unit Tests
         const val junit_version = "4.12"
         const val junit_extension_version = "1.1.0"
         const val espresso_extension_version = "3.1.1"
 
+        // Third Party Libraries
         const val retrofit_version = "2.6.2"
         const val retrofit_scalars_factory_version = "2.1.0"
         const val retrofit_logging_interceptor_version = "4.2.1"
@@ -32,7 +38,7 @@ object Dependencies {
         const val lib_apache_vesion = "3.7"
         const val lib_coroutines_version = "1.3.0"
         const val lib_joda_time = "2.9.9"
-
+        const val lib_preferences_version = "0.1.7"
     }
 
     object AndroidXLibraries {
@@ -43,6 +49,15 @@ object Dependencies {
         val preferences = "androidx.preference:preference:${Versions.androidx_preferences_version}"
         val preferences_ktx =
             "androidx.preference:preference-ktx:${Versions.androidx_preferences_version}"
+        val navigation_fragment =
+            "androidx.navigation:navigation-fragment:${Versions.androidx_navigation_version}"
+        val navigation_fragment_ktx =
+            "androidx.navigation:navigation-fragment-ktx:${Versions.androidx_navigation_version}"
+        val navigation_ui =
+            "androidx.navigation:navigation-ui:${Versions.androidx_navigation_version}"
+        val navigation_ui_ktx =
+            "androidx.navigation:navigation-ui-ktx:${Versions.androidx_navigation_version}"
+        //        val navigation_dynamic_feature_support = "androidx.navigation:navigation-dynamic-features-fragment:${Versions.androidx_navigation_version}"
         val multidex = "androidx.multidex:multidex:${Versions.androidx_multidex_vesion}"
     }
 
@@ -70,6 +85,9 @@ object Dependencies {
         const val glide_okhttp_integration =
             "com.github.bumptech.glide:okhttp3-integration:${Versions.lib_glide_version}"
         const val lottie = "com.airbnb.android:lottie:${Versions.lottie_version}"
+
+        const val secure_preferences =
+            "com.scottyab:secure-preferences-lib:${Versions.lib_preferences_version}"
     }
 
     object Kotlin {
@@ -89,5 +107,13 @@ object Dependencies {
     object Proguard {
         const val consumer_rules = "consumer-rules.pro"
         const val proguard_rules = "proguard-rules.pro"
+    }
+
+    object Plugins {
+        val navigation_safeargs_plugin =
+            "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.androidx_navigation_version}"
+        val kotlin_gradle_plugin =
+            "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin_gradle_plugin_version}"
+        val gradle = "com.android.tools.build:gradle:${Versions.gradle}"
     }
 }

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">FreeIPTV</string>
+
+    <string name="message_authorisation">Authorise to your Apple account to gain full access to your music library</string>
+    <string name="button_authorisation">Login</string>
+    <string name="developer_token">eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik04TTM4WVpCVUMifQ.eyJpc3MiOiJTMjJSNVJGSFA0IiwiaWF0IjoxNTgxNjcwNzMyLCJleHAiOjE1ODE3MTM5MzJ9.qnUAO_uODO5ELHBayYijH8XgAd1vtuY_PBMJG1rrXY8yY4v25YSj8cqjc01t36eIueibYzsGQXxoIZ3jq1YtRA</string>
 </resources>

@@ -1,24 +1,37 @@
 package com.arshak.freeiptv.splash.view.activity
 
-import android.os.Bundle
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
-import com.arshak.core.view.screens.BaseActivity
+import android.animation.Animator
+import com.arshak.core.view.screens.activity.BaseAppCompatActivity
 import com.arshak.freeiptv.R
-import com.arshak.freeiptv.databinding.ActivitySplashBinding
-import com.arshak.freeiptv.splash.data.DataModel
+import kotlinx.android.synthetic.main.activity_splash.*
 
 /**
  * Created by Arshak Avagyan on 2020-01-31.
  * Project Name: FreeIPTV
  */
 
-class SplashActivity : BaseActivity<ActivitySplashBinding>() {
+class SplashActivity : BaseAppCompatActivity(R.layout.activity_splash) {
 
-    override fun bindActivity(): Int = R.layout.activity_splash
+    override fun setupView() {
+        splashAnimationView.setAnimation(R.raw.music_equalizer)
+        splashAnimationView.addAnimatorListener(object : Animator.AnimatorListener {
 
-    override fun setBindingData() = Unit
+            override fun onAnimationRepeat(animator: Animator?) {
 
-    override fun setupView() = Unit
+            }
 
+            override fun onAnimationEnd(animator: Animator?) {
+
+            }
+
+            override fun onAnimationCancel(animator: Animator?) {
+
+            }
+
+            override fun onAnimationStart(animator: Animator?) {
+
+            }
+
+        })
+    }
 }
