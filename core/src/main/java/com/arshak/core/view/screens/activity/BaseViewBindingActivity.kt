@@ -12,8 +12,8 @@ import androidx.databinding.ViewDataBinding
  */
 
 /**
- * For cases, when only ViewBinding is needed
- *
+ * For cases, when only ViewBinding is needed for Activity Implementation (rare case)
+ *  @param layoutResId layout inflation
  */
 abstract class BaseViewBindingActivity<V : ViewDataBinding>(@LayoutRes val layoutResId: Int) :
     AppCompatActivity() {

@@ -3,8 +3,11 @@ package com.arshak.freeiptv.di
 import android.app.Application
 import com.apple.android.sdk.authentication.AuthenticationFactory
 import com.apple.android.sdk.authentication.AuthenticationManager
-import com.arshak.freeiptv.authentication.data.repository.AuthorisationRepository
-import com.arshak.freeiptv.authentication.viewmodel.AuthorisationViewModel
+import com.arshak.core.data.network.setup.AppleHttpClient
+import com.arshak.freeiptv.media.AppleMusicTokenProvider
+import com.arshak.freeiptv.screens.authentication.data.repository.AuthorisationRepository
+import com.arshak.freeiptv.screens.authentication.data.repository.MusicApi
+import com.arshak.freeiptv.screens.authentication.viewmodel.AuthorisationViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -14,30 +17,19 @@ import org.koin.dsl.module
  */
 object AuthorisationModule {
 
-    val module = module {
+    val value = module {
         single {
-            provideAuthenticationMagager(get())
+            AuthenticationFactory.createAuthenticationManager(get())
         }
 
+        factory { get<AppleHttpClient>().createService(MusicApi::class.java) }
+
         factory {
-            provideAuthroisationRepository(get(), get())
+            AuthorisationRepository(get(), get(), get())
         }
 
         viewModel {
-            provideAuthorisationViewModel(get(), get())
+            AuthorisationViewModel(get(), get(), get(), get())
         }
     }
-
-    private fun provideAuthenticationMagager(context: Application): AuthenticationManager =
-        AuthenticationFactory.createAuthenticationManager(context)
-
-    private fun provideAuthroisationRepository(
-        context: Application,
-        authenticationManager: AuthenticationManager
-    ) = AuthorisationRepository(context, authenticationManager)
-
-    private fun provideAuthorisationViewModel(
-        context: Application,
-        authorisationRepository: AuthorisationRepository
-    ) = AuthorisationViewModel(context, authorisationRepository)
 }

@@ -32,6 +32,15 @@ android {
         dataBinding {
             isEnabled = true
         }
+
+        kapt {
+            generateStubs = true
+        }
+
+        compileOptions {
+            sourceCompatibility = Config.JAVA_VERSION
+            targetCompatibility = Config.JAVA_VERSION
+        }
     }
 }
 
@@ -52,12 +61,21 @@ dependencies {
     api(Dependencies.AndroidXLibraries.navigation_fragment)
     api(Dependencies.AndroidXLibraries.navigation_fragment_ktx)
 
+    api(Dependencies.AndroidXLibraries.lifecycle_extensions)
+    api(Dependencies.AndroidXLibraries.lifecycle_livedata)
+    api(Dependencies.AndroidXLibraries.lifecycle_livedata_ktx)
+    api(Dependencies.AndroidXLibraries.androidx_security_crypto_version)
+
     kapt(Dependencies.ThirdPartyLibs.glide_compiler)
+    kapt(Dependencies.Plugins.databinding_compiler)
     api(Dependencies.ThirdPartyLibs.glide)
 
     api(Dependencies.ThirdPartyLibs.glide_okhttp_integration) {
         exclude("glide-parent")
     }
+    
+    api(Dependencies.ThirdPartyLibs.picasso)
+
     api(Dependencies.ThirdPartyLibs.retrofit)
     api(Dependencies.ThirdPartyLibs.retrofit_converter_gson)
     api(Dependencies.ThirdPartyLibs.retrofit_converter_scalars)

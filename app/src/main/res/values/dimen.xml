@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="padding_standart">16dp</dimen>
+
+    <!-- ATTENTION, for your information
+      Activity styles will be differed from fragments
+      and other screens with global comment,
+      fragments and the other stuff with * sign.
+     -->
+
+    <!-- Common -->
+
+    <dimen name="padding_standard">16dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_big">24dp</dimen>
+
+    <dimen name="padding_drawable_standard">5dp</dimen>
+
+    <dimen name="text_size_medium">16sp</dimen>
+    <dimen name="text_size_small">8sp</dimen>
+    <dimen name="text_size_big">24sp</dimen>
+
+    <!-- Notifications -->
+
+    <dimen name="notification_artwork_width">280dp</dimen>
+    <dimen name="notification_artwork_height">280dp</dimen>
+
+    <!-- Splash Screen -->
+
+    <dimen name="size_splash_animation_view">200dp</dimen>
+
+    <!-- Home Screen -->
+
 </resources>

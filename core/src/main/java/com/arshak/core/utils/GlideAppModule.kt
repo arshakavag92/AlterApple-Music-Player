@@ -1,7 +1,7 @@
 package com.arshak.core.utils
 
 import android.content.Context
-import com.arshak.core.data.network.AppleHttpClient
+import com.arshak.core.data.network.setup.AppleHttpClient
 import com.bumptech.glide.Glide
 import com.bumptech.glide.Registry
 import com.bumptech.glide.annotation.GlideModule
@@ -18,13 +18,4 @@ import java.io.InputStream
  */
 
 @GlideModule
-class GlideAppModule : AppGlideModule() {
-
-    override fun registerComponents(context: Context, glide: Glide, registry: Registry) {
-        val client: OkHttpClient = AppleHttpClient.sslTrustedOkHttpClient
-        registry.replace(
-            GlideUrl::class.java, InputStream::class.java,
-            OkHttpUrlLoader.Factory(client)
-        )
-    }
-}
+class GlideAppModule : AppGlideModule()

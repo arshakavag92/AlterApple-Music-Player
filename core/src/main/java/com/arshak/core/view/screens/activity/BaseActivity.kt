@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.arshak.core.data.viewmodel.BaseAndroidViewModel
 import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.reflect.KClass
 
 /**
@@ -30,15 +31,19 @@ abstract class BaseActivity<V : ViewDataBinding, out VM : BaseAndroidViewModel>(
 
     protected lateinit var activityBinding: V
 
-    protected open val viewModel by lazy { getViewModel(viewModelClass) }
+    protected open val viewModel: VM by viewModel(viewModelClass)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activityBinding = DataBindingUtil.setContentView(this, layoutResId)
+        activityBinding.lifecycleOwner = this@BaseActivity
 
+        setupViewModel()
         setBindingData()
         setupView()
     }
+
+    protected open fun setupViewModel() = Unit
 
     protected open fun setBindingData() = Unit
 

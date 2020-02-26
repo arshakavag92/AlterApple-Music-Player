@@ -7,18 +7,41 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.arshak.freeiptv.splash.view.fragment.SplashFragment"
+        android:name="com.arshak.freeiptv.screens.splash.view.fragment.SplashFragment"
         android:label="SplashFragment"
-        tools:layout="@layout/activity_splash">
+        tools:layout="@layout/fragment_splash">
         <action
             android:id="@+id/action_splashFragment_to_appleAuthorisationActivity"
-            app:destination="@id/appleAuthorisationActivity" />
+            app:destination="@id/appleAuthorisationFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 
     <activity
         android:id="@+id/appleAuthorisationActivity"
-        android:name="com.arshak.freeiptv.authentication.view.activity.AppleAuthorisationActivity"
+        android:name="com.arshak.freeiptv.screens.authentication.view.activity.AppleAuthorisationActivity"
         android:label="AppleAuthorisationActivity"
         tools:layout="@layout/activity_authorisation" />
+
+    <action
+        android:id="@+id/to_homeFragment"
+        app:destination="@id/homeFragment" />
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.arshak.freeiptv.screens.home.view.fragment.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/appleAuthorisationFragment"
+        android:name="com.arshak.freeiptv.screens.authentication.view.fragment.AppleAuthorisationFragment"
+        android:label="AppleAuthorisationFragment"
+        tools:layout="@layout/fragment_authorisation">
+        <action
+            android:id="@+id/action_appleAuthorisationFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 
 </navigation>

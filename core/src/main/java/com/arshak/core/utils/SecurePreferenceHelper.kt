@@ -6,6 +6,8 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.os.Build
 import androidx.core.content.ContextCompat.getSystemService
+import androidx.security.crypto.EncryptedSharedPreferences
+import androidx.security.crypto.MasterKeys
 import com.arshak.core.extensions.clearValues
 import com.arshak.core.extensions.put
 import com.securepreferences.SecurePreferences
@@ -16,44 +18,54 @@ import com.securepreferences.SecurePreferences
  * Project Name: FreeIPTV
  */
 
-class SecurePreferenceHelper {
+class SecurePreferenceHelper private constructor(context: Application) {
 
-    lateinit var mSecurePreferences: SecurePreferences
-    lateinit var mStandartPreferences: SharedPreferences
+    var applicationContext: Application = context
 
-    private val isDeviceSecured: Boolean
-        get() {
-            val keyguardManager =
-                applicationContext.getSystemService(
-                    Context.KEYGUARD_SERVICE
-                ) as KeyguardManager? //api 16+
-            return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                keyguardManager!!.isDeviceSecure
-            } else keyguardManager!!.isKeyguardSecure
+    val masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
+
+    // Step 2: Initialize/open an instance of EncryptedSharedPreferences
+    val sharedPreferences = EncryptedSharedPreferences.create(
+        "app_preferences",
+        masterKeyAlias,
+        applicationContext,
+        EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+        EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+    )
+
+    inline fun <reified T> put(key: String, value: T) {
+        val edit = sharedPreferences.edit()
+        when (T::class) {
+            String::class -> edit.putString(key, value as String)
+            Int::class -> edit.putInt(key, value as Int)
+            Float::class -> edit.putFloat(key, value as Float)
+            Boolean::class -> edit.putBoolean(key, value as Boolean)
+            Long::class -> edit.putLong(key, value as Long)
         }
-
-    fun put(pair: Pair<String, Any>) = when (isDeviceSecured) {
-        true -> mSecurePreferences.put(pair)
-        false -> mStandartPreferences.put(pair)
+        edit.commit()
     }
 
-    fun checkForChangedSecurityCredentials() {
-        when (isDeviceSecured) {
-            true -> clearStandartPreferences()
-            false -> clearSecurePreferences()
+    inline fun <reified T> get(key: String, defaultValue: T) = when (T::class) {
+        Boolean::class -> sharedPreferences.getBoolean(key, defaultValue as Boolean) as T
+        Float::class -> sharedPreferences.getFloat(key, defaultValue as Float) as T
+        Int::class -> sharedPreferences.getInt(key, defaultValue as Int) as T
+        Long::class -> sharedPreferences.getLong(key, defaultValue as Long) as T
+        String::class -> sharedPreferences.getString(key, defaultValue as String) as T
+        else -> {
+            if (defaultValue is Set<*>) {
+                sharedPreferences.getStringSet(key, defaultValue as Set<String>) as T
+            } else {
+                defaultValue
+            }
         }
     }
-
-    fun clearSecurePreferences() = mSecurePreferences.clearValues()
-
-    fun clearStandartPreferences() = mStandartPreferences.clearValues()
 
     companion object {
+        fun init(context: Application) = SecurePreferenceHelper(context)
+    }
 
-        lateinit var applicationContext: Application
-
-        fun init(context: Application) {
-            applicationContext = context
-        }
+    object Keys {
+        const val KEY_APPLE_MUSIC_TOKEN = "apple_music_token"
+        const val KEY_DEVELOPER_TOKEN = "apple_developer_token"
     }
 }

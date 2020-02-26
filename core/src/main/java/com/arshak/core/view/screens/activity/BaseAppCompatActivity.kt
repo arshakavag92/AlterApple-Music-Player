@@ -5,9 +5,11 @@ import android.view.View
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
+import com.arshak.core.di.NavigationModule
 import com.arshak.core.navigation.NavigationManager
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
+import org.koin.core.qualifier.named
 
 /**
  * Created by Arshak Avagyan on 2020-02-18.
@@ -24,7 +26,12 @@ import org.koin.core.parameter.parametersOf
 abstract class BaseAppCompatActivity(@LayoutRes layoutResId: Int, @IdRes navigationViewId: Int = View.NO_ID) :
     AppCompatActivity(layoutResId) {
 
-    val mNavigationManager: NavigationManager by inject { parametersOf(this, navigationViewId) }
+    val mNavigationManager: NavigationManager by inject(named(NavigationModule.NAVIGATION_ACTIVITY)) {
+        parametersOf(
+            this,
+            navigationViewId
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

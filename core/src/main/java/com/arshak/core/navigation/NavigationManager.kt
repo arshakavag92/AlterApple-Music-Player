@@ -23,15 +23,14 @@ class NavigationManager {
         activity.findNavController(navigationViewID)
     }
 
-    constructor(fragment: Fragment) {
-        mNavController = fragment.findNavController()
+    constructor(navController: NavController) {
+        mNavController = navController
     }
 
     @IdRes
     var mNavigationViewID: Int = View.NO_ID
 
     lateinit var mNavController: NavController
-
 
     fun navigate(@IdRes id: Int, bundle: Bundle? = null) {
 

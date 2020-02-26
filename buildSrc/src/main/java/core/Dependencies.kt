@@ -17,6 +17,8 @@ object Dependencies {
         const val androidx_navigation_version = "2.1.0"
         const val androidx_multidex_vesion = "2.0.1"
         const val androidx_preferences_version = "1.1.0"
+        const val androidx_media_version = "1.0.0"
+        const val androidx_security_crypto_version = "1.0.0-alpha02"
         const val androidx_architecture_components_version = "2.1.0"
 
         // For Unit Tests
@@ -33,6 +35,7 @@ object Dependencies {
         const val lottie_version = "3.3.1"
 
         const val lib_glide_version = "4.11.0"
+        const val lib_picasso_version = "2.71828"
         const val lib_play_services_version = "15.0.1"
         const val lib_material_version = "1.0.0"
         const val lib_apache_vesion = "3.7"
@@ -57,8 +60,20 @@ object Dependencies {
             "androidx.navigation:navigation-ui:${Versions.androidx_navigation_version}"
         val navigation_ui_ktx =
             "androidx.navigation:navigation-ui-ktx:${Versions.androidx_navigation_version}"
+
+        val lifecycle_extensions =
+            "androidx.lifecycle:lifecycle-extensions:${Versions.androidx_lifecycle_version}"
+        val lifecycle_livedata =
+            "androidx.lifecycle:lifecycle-livedata:${Versions.androidx_lifecycle_version}"
+        val lifecycle_livedata_ktx =
+            "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.androidx_lifecycle_version}"
         //        val navigation_dynamic_feature_support = "androidx.navigation:navigation-dynamic-features-fragment:${Versions.androidx_navigation_version}"
+        val androidx_security_crypto_version =
+            "androidx.security:security-crypto:${Versions.androidx_security_crypto_version}"
+
+        val media = "androidx.media:media:${Versions.androidx_media_version}"
         val multidex = "androidx.multidex:multidex:${Versions.androidx_multidex_vesion}"
+
     }
 
     object ThirdPartyLibs {
@@ -84,6 +99,7 @@ object Dependencies {
             "com.github.bumptech.glide:compiler:${Versions.lib_glide_version}"
         const val glide_okhttp_integration =
             "com.github.bumptech.glide:okhttp3-integration:${Versions.lib_glide_version}"
+        const val picasso = "com.squareup.picasso:picasso:${Versions.lib_picasso_version}"
         const val lottie = "com.airbnb.android:lottie:${Versions.lottie_version}"
 
         const val secure_preferences =
@@ -115,5 +131,6 @@ object Dependencies {
         val kotlin_gradle_plugin =
             "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin_gradle_plugin_version}"
         val gradle = "com.android.tools.build:gradle:${Versions.gradle}"
+        val databinding_compiler = "com.android.databinding:compiler:${Versions.gradle}"
     }
 }

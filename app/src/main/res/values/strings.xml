@@ -1,7 +1,20 @@
 <resources>
-    <string name="app_name">FreeIPTV</string>
+    <string name="app_name">AlterApple Music Player</string>
 
     <string name="message_authorisation">Authorise to your Apple account to gain full access to your music library</string>
     <string name="button_authorisation">Login</string>
-    <string name="developer_token">eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik04TTM4WVpCVUMifQ.eyJpc3MiOiJTMjJSNVJGSFA0IiwiaWF0IjoxNTgxNjcwNzMyLCJleHAiOjE1ODE3MTM5MzJ9.qnUAO_uODO5ELHBayYijH8XgAd1vtuY_PBMJG1rrXY8yY4v25YSj8cqjc01t36eIueibYzsGQXxoIZ3jq1YtRA</string>
+    <string name="developer_token">eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik04TTM4WVpCVUMifQ.eyJpc3MiOiJTMjJSNVJGSFA0IiwiaWF0IjoxNTgyNTYxMjE1LCJleHAiOjE1ODM0MjUyMTV9.ZrmXInKQy9iZPYDXFgdhikItwMk6X3vJdiBNMBLgSZtB6OUWd692PPSr-r0YqdOywG4soODDqf4wITveXIplPg</string>
+
+    <string name="playback_notification_channel_name">Playback</string>
+    <string name="notification_play">Play</string>
+    <string name="notification_pause">Pause</string>
+    <string name="notification_previous">Previous</string>
+    <string name="notification_next">Next</string>
+
+    <!-- Home Fragment -->
+    <string name="my_music">My Music</string>
+    <string name="search">Search</string>
+    <string name="top">Top</string>
+    <string name="settings">Settings</string>
+
 </resources>

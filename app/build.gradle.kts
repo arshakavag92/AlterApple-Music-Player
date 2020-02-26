@@ -37,6 +37,10 @@ android {
         isEnabled = true
     }
 
+    kapt {
+        generateStubs = true
+    }
+
     androidExtensions {
         isExperimental = true
     }
@@ -50,6 +54,9 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar", "*.aar"))))
     implementation(project(":core"))
+
+    implementation(Dependencies.AndroidXLibraries.media)
+    kapt(Dependencies.Plugins.databinding_compiler)
 }
 
 
