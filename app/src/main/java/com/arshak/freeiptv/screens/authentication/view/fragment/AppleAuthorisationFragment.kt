@@ -4,6 +4,8 @@ import android.content.Intent
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.apple.android.sdk.authentication.AuthenticationManager
+import com.arshak.core.data.local.cache.TemporaryData
+import com.arshak.core.data.network.model.Output
 import com.arshak.core.extensions.toast
 import com.arshak.core.view.screens.fragment.BaseFragment
 import com.arshak.freeiptv.R
@@ -33,7 +35,9 @@ class AppleAuthorisationFragment :
     @Override
     override fun setupViewModel() {
         activityViewModel.navigationDestinatonLiveData.observe(this, Observer {
-            mNavigationManager.navigate(it)
+            if (it == R.id.action_appleAuthorisationFragment_to_homeFragment) {
+                getUserStoreFront()
+            }
         })
     }
 
@@ -46,6 +50,19 @@ class AppleAuthorisationFragment :
                 .setHideStartScreen(true)
                 .build()
         startActivityForResult(intent, REQUEST_CODE_APPLE_MUSIC_AUTH)
+    }
+
+    private fun getUserStoreFront() {
+        activityViewModel.getUserStoreFront().observe(this, Observer {
+            when (it) {
+                is Output.Success -> {
+                    TemporaryData.storeFront = it.output.data.first().id
+                    mNavigationManager.navigate(R.id.to_homeFragment)
+                }
+                is Output.Error -> Unit
+            }
+
+        })
     }
 
     companion object {

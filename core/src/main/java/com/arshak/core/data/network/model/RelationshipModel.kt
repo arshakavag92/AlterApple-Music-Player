@@ -7,4 +7,4 @@ import androidx.annotation.Keep
  * Project Name: FreeIPTV
  */
 @Keep
-data class RelationshipModel(val data: ResourceModel<*>, val href: String)
+data class RelationshipModel<T>(val data: ResourceModel<T>, val href: String)

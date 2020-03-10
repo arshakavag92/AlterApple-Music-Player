@@ -3,7 +3,7 @@
 
     <string name="message_authorisation">Authorise to your Apple account to gain full access to your music library</string>
     <string name="button_authorisation">Login</string>
-    <string name="developer_token">eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik04TTM4WVpCVUMifQ.eyJpc3MiOiJTMjJSNVJGSFA0IiwiaWF0IjoxNTgyNTYxMjE1LCJleHAiOjE1ODM0MjUyMTV9.ZrmXInKQy9iZPYDXFgdhikItwMk6X3vJdiBNMBLgSZtB6OUWd692PPSr-r0YqdOywG4soODDqf4wITveXIplPg</string>
+    <string name="developer_token">eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik04TTM4WVpCVUMifQ.eyJpc3MiOiJTMjJSNVJGSFA0IiwiaWF0IjoxNTgzNzM4Mjk2LCJleHAiOjE1ODQ2MDIyOTZ9.dv3a_5nfIJfbTHOY9_6zjkDG6Sc4qxmGsFoL0S-cfxxpo4rdXG7udZmIuKRhP-VxeVJ-gzRtWLHG9bsl9PUKsw</string>
 
     <string name="playback_notification_channel_name">Playback</string>
     <string name="notification_play">Play</string>
@@ -16,5 +16,13 @@
     <string name="search">Search</string>
     <string name="top">Top</string>
     <string name="settings">Settings</string>
+
+    <!-- Search Fragment -->
+    <string name="hint_search">Search, Albums, Lyrics and More</string>
+
+    <!-- Search Fragment: Result Categories -->
+    <string name="artists">Arists</string>
+    <string name="tracks">Tracks</string>
+    <string name="albums">Albums</string>
 
 </resources>

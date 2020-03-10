@@ -1,5 +1,7 @@
 package com.arshak.freeiptv.screens.authentication.data.repository
 
+import com.arshak.core.data.network.model.SearchHintResponseModel
+import com.arshak.core.data.network.model.SearchHintResultsModel
 import com.arshak.core.data.network.model.SearchResponseModel
 import com.arshak.core.data.network.model.StorefrontResponseModel
 import com.arshak.core.data.network.setup.NetworkConstants
@@ -34,5 +36,5 @@ interface MusicApi {
         @Query("term") term: String,
         @Query("limit") limit: Int?,
         @Query("types") types: List<String>?
-    )
+    ): Response<SearchHintResponseModel>
 }

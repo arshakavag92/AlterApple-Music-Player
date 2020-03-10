@@ -36,7 +36,7 @@
             android:layout_height="50dp"
             android:layout_gravity="bottom"
             app:itemTextColor="@android:color/white"
-            app:menu="@menu/home_navigation"
+            app:menu="@menu/home_menu"
             app:onNavigationItemSelected="@{viewmodel::onNavigationItemSelected}" />
 
     </LinearLayout>

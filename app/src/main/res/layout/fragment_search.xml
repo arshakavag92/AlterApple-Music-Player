@@ -23,15 +23,15 @@
             <androidx.appcompat.widget.SearchView
                 style="@style/MusicPlayer.Home.Search"
                 app:afterTextChanged="@{viewmodel::onTextChanged}"
+                app:onClearClicked="@{viewmodel::onClearClicked}"
                 app:onTextSubmitted="@{viewmodel::onTextSubmitted}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/searchFragment"
+            android:id="@+id/searchFragmentRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/padding_standard" />
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 

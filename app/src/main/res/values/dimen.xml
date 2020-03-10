@@ -30,4 +30,14 @@
 
     <!-- Home Screen -->
 
+    <!-- * Search Result Fragment: Result Category -->
+    <dimen name="size_category_corner_radius">15dp</dimen>
+    <dimen name="size_category_text_more">15sp</dimen>
+
+    <!-- * Search Result Fragment: Song Result -->
+    <dimen name="size_album_cover">50dp</dimen>
+    <dimen name="size_text_subcategory_title">12sp</dimen>
+    <dimen name="size_text_song_name">12sp</dimen>
+    <dimen name="size_corner_radius">15sp</dimen>
+
 </resources>

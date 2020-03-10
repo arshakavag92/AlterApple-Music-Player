@@ -10,5 +10,5 @@ object NetworkConstants {
     const val PATH_STOREFRONT = "me/storefront"
 
     const val PATH_SEARCH = "catalog/{storefront}/search"
-    const val PATH_SEACH_HINT = ""
+    const val PATH_SEACH_HINT = "catalog/{storefront}/search/hints"
 }

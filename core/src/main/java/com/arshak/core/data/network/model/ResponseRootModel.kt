@@ -11,7 +11,7 @@ import androidx.annotation.Keep
 open class ResponseRootModel<T>(
     val data: List<ResourceModel<T>> = emptyList(),
     val href: String = "",
-    val meta: RelationshipModel? = null,
+    val meta: RelationshipModel<*>? = null,
     val error: List<ErrorModel>? = emptyList(),
     val next: String = ""
 ) {
@@ -38,5 +38,4 @@ open class ResponseRootModel<T>(
         result = 31 * result + next.hashCode()
         return result
     }
-
 }

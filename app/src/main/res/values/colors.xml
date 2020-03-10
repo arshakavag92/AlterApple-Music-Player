@@ -5,4 +5,6 @@
     <color name="colorAccent">#D81B60</color>
 
     <color name="green_standard">#34eb92</color>
+
+    <color name="search_result_item_color">#4A4141</color>
 </resources>

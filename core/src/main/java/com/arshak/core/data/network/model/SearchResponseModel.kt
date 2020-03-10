@@ -7,4 +7,4 @@ import androidx.annotation.Keep
  * Project Name: FreeIPTV
  */
 @Keep
-data class SearchResponseModel(val results: List<Any>) : ResponseRootModel<Nothing>()
+data class SearchResponseModel(val results: SearchResultsModel) : ResponseRootModel<Nothing>()

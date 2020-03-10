@@ -48,12 +48,12 @@ class SplashFragment : BaseAppCompatFragment<AuthorisationViewModel>(
         activityViewModel.getUserStoreFront().observe(this@SplashFragment, Observer {
             when (it) {
                 is Output.Success -> {
-                    TemporaryData.storeFront =
-                        it.output.data.first().id
+                    TemporaryData.storeFront = it.output.data.first().id
                     mNavigationManager.navigate(R.id.to_homeFragment)
                 }
                 is Output.Error -> Unit
             }
+
         })
     }
 }

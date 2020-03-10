@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/search_result_item_color">
+
+    <ImageView
+        android:id="@+id/albumCoverImageView"
+        android:layout_width="@dimen/size_album_cover"
+        android:layout_height="@dimen/size_album_cover"
+        android:layout_marginStart="@dimen/padding_small"
+        android:layout_marginLeft="@dimen/padding_small"
+        android:layout_marginTop="@dimen/padding_small"
+        android:layout_marginBottom="@dimen/padding_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/songNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/padding_small"
+        android:textSize="@dimen/size_text_subcategory_title"
+        app:layout_constraintLeft_toRightOf="@id/albumCoverImageView"
+        app:layout_constraintTop_toTopOf="@id/albumCoverImageView" />
+
+    <TextView
+        android:id="@+id/artistiAndAlbumTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/padding_small"
+        app:layout_constraintLeft_toRightOf="@id/albumCoverImageView"
+        app:layout_constraintTop_toBottomOf="@id/songNameTextView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

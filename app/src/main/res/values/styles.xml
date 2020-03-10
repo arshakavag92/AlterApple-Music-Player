@@ -63,6 +63,32 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/text_size_medium</item>
         <item name="android:textColor">@android:color/black</item>
+        <item name="android:drawableLeft">@null</item>
     </style>
+
+    <style name="MusicPlayer.Home.Search.Result">
+        <item name="android:drawableLeft">@null</item>
+    </style>
+
+    <style name="MusicPlayer.Home.Search.Result.Category">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MusicPlayer.Home.Search.Result.Song" />
+
+    <style name="MusicPlayer.Home.Search.Result.Song.AlbumCover">
+        <item name="android:layout_width">@dimen/size_album_cover</item>
+        <item name="android:layout_height">@dimen/size_album_cover</item>
+    </style>
+
+    <style name="MusicPlayer.Home.Search.Result.Song.Name">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
 
 </resources>
