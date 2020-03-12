@@ -57,6 +57,13 @@ dependencies {
 
     implementation(Dependencies.AndroidXLibraries.media)
     kapt(Dependencies.Plugins.databinding_compiler)
+
+    kapt(Dependencies.ThirdPartyLibs.glide_compiler)
+    implementation(Dependencies.ThirdPartyLibs.glide)
+
+    implementation(Dependencies.ThirdPartyLibs.glide_okhttp_integration) {
+        exclude("glide-parent")
+    }
 }
 
 

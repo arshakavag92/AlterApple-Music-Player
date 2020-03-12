@@ -3,11 +3,13 @@ package com.arshak.freeiptv.screens.home.view.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.ListAdapter
 import com.arshak.core.data.network.model.SearchResponseItemUiModel
 import com.arshak.freeiptv.R
+import com.arshak.freeiptv.databinding.ItemSearchSubcategoryBinding
 
 class SearchResultAdapter :
     ListAdapter<SearchResponseItemUiModel<*>, SearchResultAdapter.SearchResultUiModelViewHolder>(
@@ -24,17 +26,21 @@ class SearchResultAdapter :
     override fun onBindViewHolder(holder: SearchResultUiModelViewHolder, position: Int) =
         holder.bind(getItem(position))
 
-    class SearchResultUiModelViewHolder constructor(itemView: View) :
-        RecyclerView.ViewHolder(itemView) {
+    class SearchResultUiModelViewHolder constructor(val binding: ItemSearchSubcategoryBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(item: SearchResponseItemUiModel<*>) = with(itemView) {
-
+            binding.model = item
         }
 
         companion object {
             fun from(parent: ViewGroup): SearchResultUiModelViewHolder {
-                val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_search_subcategory, parent, false)
-                return SearchResultUiModelViewHolder(view)
+                val binding = DataBindingUtil.inflate<ItemSearchSubcategoryBinding>(
+                    LayoutInflater.from(parent.context),
+                    R.layout.item_search_subcategory,
+                    parent,
+                    false
+                )
+                return SearchResultUiModelViewHolder(binding)
             }
         }
     }

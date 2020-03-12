@@ -19,7 +19,7 @@ class AppleHttpClient(val securePreferenceHelper: SecurePreferenceHelper) {
 
     private var requestHeaders: MutableSet<Pair<String, String>> = mutableSetOf()
 
-    private val retrofitInstance: Retrofit by lazy {
+    val retrofitInstance: Retrofit by lazy {
         Retrofit.Builder()
             .baseUrl(NetworkConstants.BASE_URL)
             .client(getTrustedHttpClient())
@@ -34,7 +34,7 @@ class AppleHttpClient(val securePreferenceHelper: SecurePreferenceHelper) {
 
     fun <T> createService(service: Class<T>) = retrofitInstance.create(service)
 
-    private fun getTrustedHttpClient(): OkHttpClient {
+    fun getTrustedHttpClient(): OkHttpClient {
         try {
             val trustAllCerts = arrayOf<TrustManager>(object : X509TrustManager {
                 @Throws(CertificateException::class)

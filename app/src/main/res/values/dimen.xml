@@ -40,4 +40,16 @@
     <dimen name="size_text_song_name">12sp</dimen>
     <dimen name="size_corner_radius">15sp</dimen>
 
+    <!-- * Search Result Fragment: Albums Result -->
+    <dimen name="size_album_cover_album">75dp</dimen>
+    <dimen name="size_text_album_name">13sp</dimen>
+    <dimen name="size_text_album_artist">11sp</dimen>
+    <dimen name="size_text_album_year">11sp</dimen>
+
+    <!-- * Search Result Fragment: Artists Result-->
+    <dimen name="size_image_cover">75dp</dimen>
+    <dimen name="size_text_artist_name">13sp</dimen>
+    <dimen name="size_text_genre_names">11sp</dimen>
+    <dimen name="size_container_height">75dp</dimen>
+
 </resources>

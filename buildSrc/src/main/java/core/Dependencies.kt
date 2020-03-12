@@ -67,6 +67,7 @@ object Dependencies {
             "androidx.lifecycle:lifecycle-livedata:${Versions.androidx_lifecycle_version}"
         val lifecycle_livedata_ktx =
             "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.androidx_lifecycle_version}"
+
         //        val navigation_dynamic_feature_support = "androidx.navigation:navigation-dynamic-features-fragment:${Versions.androidx_navigation_version}"
         val androidx_security_crypto_version =
             "androidx.security:security-crypto:${Versions.androidx_security_crypto_version}"

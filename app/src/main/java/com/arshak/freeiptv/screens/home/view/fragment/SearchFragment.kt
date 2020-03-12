@@ -56,7 +56,7 @@ class SearchFragment :
                                         type = SearchItemTypeEnum.SONGS.type,
                                         name = getString(R.string.tracks),
                                         data = response.songs.data,
-                                        id = ""
+                                        id = response.songs.href
                                     )
                                 )
                                 add(
@@ -65,20 +65,21 @@ class SearchFragment :
                                         type = SearchItemTypeEnum.ARTISTS.type,
                                         name = getString(R.string.artists),
                                         data = response.artists.data,
-                                        id = ""
+                                        id = response.artists.href
                                     )
                                 )
                                 // TODO albums
                                 add(
                                     SearchResponseItemUiModel(
-                                        href = response.artists.href,
+                                        href = response.albums.href,
                                         type = SearchItemTypeEnum.ALBUMS.type,
                                         name = getString(R.string.albums),
-                                        data = response.artists.data,
-                                        id = ""
+                                        data = response.albums.data,
+                                        id = response.albums.href
                                     )
                                 )
                             }
+                            setupSearchResultList(data)
                         }
                         is Output.Error -> Unit
                     }

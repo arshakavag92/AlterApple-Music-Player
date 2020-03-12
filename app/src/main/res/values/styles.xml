@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -78,7 +78,10 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="MusicPlayer.Home.Search.Result.Song" />
+    <style name="MusicPlayer.Home.Search.Result.Song">
+        <item name="singleLine">true</item>
+        <item name="android:maxLines">1</item>
+    </style>
 
     <style name="MusicPlayer.Home.Search.Result.Song.AlbumCover">
         <item name="android:layout_width">@dimen/size_album_cover</item>
@@ -87,8 +90,69 @@
 
     <style name="MusicPlayer.Home.Search.Result.Song.Name">
         <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="MusicPlayer.Home.Search.Result.Song.Album">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">12sp</item>
+    </style>
 
+    <style name="MusicPlayer.Home.Search.Result.Song.Year">
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="MusicPlayer.Home.Search.Result.Album" />
+
+    <style name="MusicPlayer.Home.Search.Result.Album.Cover">
+        <item name="android:layout_width">@dimen/size_album_cover_album</item>
+        <item name="android:layout_height">@dimen/size_album_cover_album</item>
+    </style>
+
+    <style name="MusicPlayer.Home.Search.Result.Album.Name">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/size_text_album_name</item>
+    </style>
+
+    <style name="MusicPlayer.Home.Search.Result.Album.Artist">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/size_text_album_artist</item>
+    </style>
+
+    <style name="MusicPlayer.Home.Search.Result.Album.Year">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:textSize">@dimen/size_text_album_year</item>
+    </style>
+
+    <style name="MusicPlayer.Home.Search.Result.Artist" />
+
+
+    <style name="MusicPlayer.Home.Search.Result.Artist.Image">
+        <item name="android:layout_width">@dimen/size_image_cover</item>
+        <item name="android:layout_height">@dimen/size_image_cover</item>
+    </style>
+
+    <style name="MusicPlayer.Home.Search.Result.Artist.Name">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/size_text_album_name</item>
+    </style>
+
+    <style name="MusicPlayer.Home.Search.Result.Artist.Genres">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:textSize">@dimen/size_text_album_year</item>
+    </style>
 </resources>

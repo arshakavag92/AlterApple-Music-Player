@@ -1,48 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:cardBackgroundColor="@color/search_result_item_color"
-    app:cardCornerRadius="@dimen/size_category_corner_radius"
-    app:cardUseCompatPadding="true">
 
-    <LinearLayout
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.arshak.core.data.network.model.SearchResponseItemUiModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:divider="@drawable/divider_search_category_vertical"
-        android:orientation="vertical"
-        android:paddingHorizontal="@dimen/padding_standard"
-        android:paddingVertical="@dimen/padding_standard"
-        android:showDividers="middle">
-
-        <TextView
-            android:id="@+id/subCategoryTitleTextView"
-            style="@style/MusicPlayer.Home.Search.Result.Category"
-            tools:text="Inanaaaa" />
+        app:cardBackgroundColor="@color/search_result_item_color"
+        app:cardCornerRadius="@dimen/size_category_corner_radius"
+        app:cardUseCompatPadding="true">
 
         <LinearLayout
-            android:id="@+id/containerLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:divider="@drawable/divider_search_category_vertical"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/padding_standard"
+            android:paddingVertical="@dimen/padding_standard"
+            android:showDividers="middle">
 
-        <View
-            android:id="@+id/separator"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/black" />
+            <TextView
+                android:id="@+id/subCategoryTitleTextView"
+                style="@style/MusicPlayer.Home.Search.Result.Category"
+                android:text="@{model.name}"
+                tools:text="Inanaaaa" />
 
-        <TextView
-            android:id="@+id/moreTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@android:color/holo_orange_light"
-            android:textSize="@dimen/size_category_text_more"
-            android:textStyle="bold"
-            tools:text="more" />
+            <LinearLayout
+                android:id="@+id/containerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:subResults="@{model}" />
 
-    </LinearLayout>
-</com.google.android.material.card.MaterialCardView>
+            <View
+                android:id="@+id/separator"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:id="@+id/moreTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/holo_orange_light"
+                android:textSize="@dimen/size_category_text_more"
+                android:textStyle="bold"
+                tools:text="more" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

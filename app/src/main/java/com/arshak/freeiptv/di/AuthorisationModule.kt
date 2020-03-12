@@ -18,18 +18,9 @@ import org.koin.dsl.module
 object AuthorisationModule {
 
     val value = module {
-        single {
-            AuthenticationFactory.createAuthenticationManager(get())
-        }
-
+        single { AuthenticationFactory.createAuthenticationManager(get()) }
         factory { get<AppleHttpClient>().createService(MusicApi::class.java) }
-
-        factory {
-            AuthorisationRepository(get(), get(), get())
-        }
-
-        viewModel {
-            AuthorisationViewModel(get(), get(), get(), get())
-        }
+        factory { AuthorisationRepository(get(), get(), get()) }
+        viewModel { AuthorisationViewModel(get(), get(), get(), get()) }
     }
 }
