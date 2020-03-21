@@ -23,13 +23,15 @@ import org.koin.core.qualifier.named
  *
  * */
 
-abstract class BaseAppCompatActivity(@LayoutRes layoutResId: Int, @IdRes navigationViewId: Int = View.NO_ID) :
+abstract class BaseAppCompatActivity(
+    @LayoutRes layoutResId: Int,
+    @IdRes navigationViewId: Int = View.NO_ID
+) :
     AppCompatActivity(layoutResId) {
 
     val mNavigationManager: NavigationManager by inject(named(NavigationModule.NAVIGATION_ACTIVITY)) {
         parametersOf(
-            this,
-            navigationViewId
+            navigationViewId, this
         )
     }
 

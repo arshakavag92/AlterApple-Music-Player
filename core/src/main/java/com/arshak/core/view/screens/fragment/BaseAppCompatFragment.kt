@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -15,6 +16,7 @@ import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.core.parameter.parametersOf
 import org.koin.core.qualifier.named
+import javax.inject.Inject
 import kotlin.reflect.KClass
 
 /**
@@ -30,7 +32,8 @@ import kotlin.reflect.KClass
  * */
 
 abstract class BaseAppCompatFragment<out VM : BaseAndroidViewModel>(
-    @LayoutRes val layoutID: Int, viewModelClass: KClass<VM>
+    @LayoutRes val layoutID: Int,
+    viewModelClass: KClass<VM>
 ) : Fragment() {
 
     lateinit var mFragmentView: View

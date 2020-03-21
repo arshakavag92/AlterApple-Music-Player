@@ -1,3 +1,5 @@
+@file:Suppress("UNCHECKED_CAST")
+
 package com.arshak.freeiptv.screens.authentication.view.binding
 
 import android.view.LayoutInflater
@@ -26,6 +28,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
  * Created by Arshak Avagyan on 2/25/20.
  * Project Name: FreeIPTV
  */
+
 object HomeBinding {
 
     @JvmStatic

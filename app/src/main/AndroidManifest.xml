@@ -31,6 +31,7 @@
 
         <activity
             android:name="com.arshak.freeiptv.screens.main.view.MainNavigationActivity"
+            android:configChanges="uiMode"
             android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

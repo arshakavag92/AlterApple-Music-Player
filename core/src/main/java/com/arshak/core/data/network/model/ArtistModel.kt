@@ -19,7 +19,7 @@ data class ArtistModel<T>(
 ) {
     data class Attributes(
         @SerializedName("genreNames")
-        val genreNames: List<String>,
+        val genreNames: MutableList<String> = mutableListOf(),
         @SerializedName("name")
         val name: String, val url: String
     )

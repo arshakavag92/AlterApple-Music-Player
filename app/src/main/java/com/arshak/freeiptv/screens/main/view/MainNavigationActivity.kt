@@ -9,9 +9,9 @@ import com.arshak.freeiptv.R
  */
 class MainNavigationActivity :
     BaseAppCompatActivity(R.layout.activity_main_navigation, R.id.nav_host_fragment) {
+    override fun setupView() = Unit
 
-
-    override fun setupView() {
-
+    override fun onBackPressed() {
+        super.onBackPressed()
     }
 }

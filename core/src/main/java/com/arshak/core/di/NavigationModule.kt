@@ -25,13 +25,8 @@ object NavigationModule {
         factory(named(NAVIGATION_FRAGMENT)) { (navController: NavController) ->
             NavigationManager(navController)
         }
-
-        factory(named(NAVIGATION_FRAGMENT_NESTED)) { (navController: NavController) ->
-            NavigationManager(navController)
-        }
     }
 
     const val NAVIGATION_ACTIVITY = "NAVIGATION_ACTIVITY"
     const val NAVIGATION_FRAGMENT = "NAVIGATION_FRAGMENT"
-    const val NAVIGATION_FRAGMENT_NESTED = "NAVIGATION_FRAGMENT_NESTED"
 }

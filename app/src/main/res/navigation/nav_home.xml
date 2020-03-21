@@ -3,11 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_home"
-    app:startDestination="@id/searchFragment">
+    app:startDestination="@id/myMusicFragment">
 
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.arshak.freeiptv.screens.home.view.fragment.SearchFragment"
         android:label="SearchFragment"
         tools:layout="@layout/fragment_search" />
+
+    <fragment
+        android:id="@+id/myMusicFragment"
+        android:name="com.arshak.freeiptv.screens.home.view.fragment.MyMusicFragment"
+        android:label="MyMusicFragment"
+        tools:layout="@layout/fragment_my_music" />
+
+    <action
+        android:id="@+id/to_myMusicFragment"
+        app:destination="@id/myMusicFragment" />
+
+    <action
+        android:id="@+id/to_searchFragment"
+        app:destination="@id/searchFragment" />
+
 </navigation>

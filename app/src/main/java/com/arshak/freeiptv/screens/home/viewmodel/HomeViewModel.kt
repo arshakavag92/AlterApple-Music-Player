@@ -5,6 +5,7 @@ import android.view.MenuItem
 import androidx.lifecycle.*
 import com.arshak.core.data.network.model.*
 import com.arshak.core.data.viewmodel.BaseAndroidViewModel
+import com.arshak.freeiptv.R
 import com.arshak.freeiptv.screens.authentication.view.widget.listener.OnSearchClearListener
 import com.arshak.freeiptv.screens.authentication.view.widget.listener.SearchQueryListener
 import com.arshak.freeiptv.screens.authentication.view.widget.listener.TextChangeListener
@@ -26,8 +27,10 @@ class HomeViewModel(context: Application, private val homeRepository: HomeReposi
     lateinit var searchQueryLiveData: LiveData<Output<SearchResponseModel>>
     lateinit var searchHintQueryLiveData: LiveData<Output<SearchHintResponseModel>>
 
-    override fun onNavigationItemSelected(p0: MenuItem): Boolean {
-
+    override fun onNavigationItemSelected(menuitem: MenuItem): Boolean {
+        when (menuitem.itemId) {
+            R.id.my_music -> navigate(R.id.to_myMusicFragment)
+        }
         return false
     }
 
@@ -45,7 +48,7 @@ class HomeViewModel(context: Application, private val homeRepository: HomeReposi
         }
     }
 
-    private fun seachHintForItems(searchString: String) {
+    private fun searchHintForItems(searchString: String) {
         searchHintQueryLiveData = executeBackendCall {
             homeRepository.getSearchHints(
                 SearchHintRequestModel(term = searchString)
@@ -59,7 +62,10 @@ class HomeViewModel(context: Application, private val homeRepository: HomeReposi
 
     override fun onTextChanged(text: String) = searchForItems(text)
 
-    override fun onTextSubmitted(newText: String) = seachHintForItems(newText)
+    override fun onTextSubmitted(newText: String) = searchHintForItems(newText)
 
-    override fun onClearClicked() = Unit
+    override fun onClearClicked() {
+        searchHintResultLiveData.value = null
+        searchResultLiveData.value = null
+    }
 }

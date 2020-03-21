@@ -5,10 +5,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.arshak.core.data.viewmodel.BaseAndroidViewModel
+import com.arshak.core.di.NavigationModule
+import com.arshak.core.navigation.NavigationManager
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
+import org.koin.core.qualifier.named
 import kotlin.reflect.KClass
 
 /**
@@ -25,7 +33,8 @@ import kotlin.reflect.KClass
  * */
 
 abstract class BaseFragment<V : ViewDataBinding, out VM : BaseAndroidViewModel>(
-    @LayoutRes val layoutResId: Int, viewModelClass: KClass<VM>
+    @LayoutRes val layoutResId: Int,
+    viewModelClass: KClass<VM>
 ) : BaseAppCompatFragment<VM>(layoutResId, viewModelClass) {
 
     protected lateinit var fragmentBinding: V

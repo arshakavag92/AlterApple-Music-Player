@@ -13,6 +13,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/white"
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
@@ -21,9 +22,9 @@
             android:padding="@dimen/padding_standard">
 
             <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchView"
                 style="@style/MusicPlayer.Home.Search"
                 app:afterTextChanged="@{viewmodel::onTextChanged}"
-                app:onClearClicked="@{viewmodel::onClearClicked}"
                 app:onTextSubmitted="@{viewmodel::onTextSubmitted}" />
 
         </com.google.android.material.textfield.TextInputLayout>

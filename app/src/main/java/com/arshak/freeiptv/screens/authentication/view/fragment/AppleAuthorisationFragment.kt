@@ -61,7 +61,6 @@ class AppleAuthorisationFragment :
                 }
                 is Output.Error -> Unit
             }
-
         })
     }
 

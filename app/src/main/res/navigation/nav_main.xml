@@ -26,7 +26,8 @@
 
     <action
         android:id="@+id/to_homeFragment"
-        app:destination="@id/homeFragment" />
+        app:destination="@id/homeFragment"
+        app:popUpTo="@id/homeFragment" />
 
     <fragment
         android:id="@+id/homeFragment"

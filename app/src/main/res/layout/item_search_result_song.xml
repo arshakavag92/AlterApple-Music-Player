@@ -20,7 +20,6 @@
             android:id="@+id/albumCoverImageView"
             style="@style/MusicPlayer.Home.Search.Result.Song.AlbumCover"
             android:layout_marginStart="@dimen/padding_small"
-            android:layout_marginLeft="@dimen/padding_small"
             android:layout_marginTop="@dimen/padding_small"
             android:layout_marginBottom="@dimen/padding_small"
             app:artwork="@{songattributes.artwork}"

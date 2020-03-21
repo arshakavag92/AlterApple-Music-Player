@@ -46,41 +46,7 @@ class SearchFragment :
             searchResultLiveData.observe(this@SearchFragment.viewLifecycleOwner,
                 Observer {
                     when (it) {
-                        is Output.Success -> {
-                            val data: MutableList<SearchResponseItemUiModel<*>> = mutableListOf()
-                            val response = it.output.results
-                            data.apply {
-                                add(
-                                    SearchResponseItemUiModel(
-                                        href = response.songs.href,
-                                        type = SearchItemTypeEnum.SONGS.type,
-                                        name = getString(R.string.tracks),
-                                        data = response.songs.data,
-                                        id = response.songs.href
-                                    )
-                                )
-                                add(
-                                    SearchResponseItemUiModel(
-                                        href = response.artists.href,
-                                        type = SearchItemTypeEnum.ARTISTS.type,
-                                        name = getString(R.string.artists),
-                                        data = response.artists.data,
-                                        id = response.artists.href
-                                    )
-                                )
-                                // TODO albums
-                                add(
-                                    SearchResponseItemUiModel(
-                                        href = response.albums.href,
-                                        type = SearchItemTypeEnum.ALBUMS.type,
-                                        name = getString(R.string.albums),
-                                        data = response.albums.data,
-                                        id = response.albums.href
-                                    )
-                                )
-                            }
-                            setupSearchResultList(data)
-                        }
+                        is Output.Success -> handleSearchResultResponse(it.output)
                         is Output.Error -> Unit
                     }
                 })
@@ -93,6 +59,42 @@ class SearchFragment :
                     }
                 })
         }
+    }
+
+    private fun handleSearchResultResponse(searchResponseModel: SearchResponseModel) {
+        val data: MutableList<SearchResponseItemUiModel<*>> = mutableListOf()
+        val response = searchResponseModel.results
+        data.apply {
+            add(
+                SearchResponseItemUiModel(
+                    href = response.songs.href,
+                    type = SearchItemTypeEnum.SONGS.type,
+                    name = getString(R.string.tracks),
+                    data = response.songs.data,
+                    id = response.songs.href
+                )
+            )
+            add(
+                SearchResponseItemUiModel(
+                    href = response.artists.href,
+                    type = SearchItemTypeEnum.ARTISTS.type,
+                    name = getString(R.string.artists),
+                    data = response.artists.data,
+                    id = response.artists.href
+                )
+            )
+            // TODO albums
+            add(
+                SearchResponseItemUiModel(
+                    href = response.albums.href,
+                    type = SearchItemTypeEnum.ALBUMS.type,
+                    name = getString(R.string.albums),
+                    data = response.albums.data,
+                    id = response.albums.href
+                )
+            )
+        }
+        setupSearchResultList(data)
     }
 
     private fun setupHintResultList(searchHintData: MutableList<String>) =
@@ -117,6 +119,12 @@ class SearchFragment :
         fragmentBinding.searchFragmentRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@SearchFragment.context)
             adapter = mSearchHintAdapter
+        }
+
+        fragmentBinding.searchView.setOnCloseListener {
+            mSearchHintAdapter.submitList(mutableListOf())
+            mSearchResultAdapter.submitList(mutableListOf())
+            false
         }
     }
 }

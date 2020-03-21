@@ -3,13 +3,12 @@ package com.arshak.core.navigation
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.annotation.AnimRes
 import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.arshak.core.R
 
 /**
@@ -30,10 +29,9 @@ class NavigationManager {
     @IdRes
     var mNavigationViewID: Int = View.NO_ID
 
-    lateinit var mNavController: NavController
+    private lateinit var mNavController: NavController
 
-    fun navigate(@IdRes id: Int, bundle: Bundle? = null) {
-
+    fun navigate(@IdRes actionID: Int, bundle: Bundle? = null) {
         val navOptions: NavOptions = NavOptions.Builder()
             .setEnterAnim(R.anim.slide_in_from_right)
             .setExitAnim(R.anim.slide_out_to_left)
@@ -42,7 +40,29 @@ class NavigationManager {
             .build()
 
         try {
-            mNavController.navigate(id, bundle, navOptions)
+            mNavController.navigate(actionID, bundle, navOptions)
+        } catch (e: Exception) {
+            Log.d("Exception", e.message!!)
+        }
+    }
+
+    fun navigateWithAnim(
+        @IdRes actionID: Int,
+        @AnimRes enterAnim: Int,
+        @AnimRes exitAnim: Int,
+        @AnimRes popEnterAnim: Int = enterAnim,
+        @AnimRes popExitAnim: Int = exitAnim,
+        bundle: Bundle? = null
+    ) {
+        val navOptions: NavOptions = NavOptions.Builder()
+            .setEnterAnim(enterAnim)
+            .setExitAnim(exitAnim)
+            .setPopEnterAnim(popEnterAnim)
+            .setPopExitAnim(popExitAnim)
+            .build()
+
+        try {
+            mNavController.navigate(actionID, bundle, navOptions)
         } catch (e: Exception) {
             Log.d("Exception", e.message!!)
         }
