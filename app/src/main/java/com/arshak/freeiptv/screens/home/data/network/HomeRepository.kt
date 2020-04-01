@@ -10,7 +10,7 @@ import com.arshak.freeiptv.screens.authentication.data.repository.MusicApi
  * Created by Arshak Avagyan on 2020-02-24.
  * Project Name: FreeIPTV
  */
-class HomeRepository(val musicApi: MusicApi) : BaseRepository() {
+class HomeRepository(private val musicApi: MusicApi) : BaseRepository() {
 
     suspend fun getSearchResult(searchRequestModel: SearchRequestModel) = musicApi.search(
         storeFront = TemporaryData.storeFront,
@@ -28,4 +28,5 @@ class HomeRepository(val musicApi: MusicApi) : BaseRepository() {
             limit = searchHintRequestModel.limit,
             types = searchHintRequestModel.types
         )
+
 }

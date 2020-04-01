@@ -12,7 +12,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/search_result_item_color">
+        android:background="@android:color/white"
+        android:clickable="true"
+        android:foreground="?android:selectableItemBackground">
 
         <ImageView
             android:id="@+id/albumCoverImageView"
@@ -50,5 +52,4 @@
             app:layout_constraintTop_toBottomOf="@id/albumArtistTextView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </layout>

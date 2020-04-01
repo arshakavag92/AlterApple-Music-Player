@@ -7,7 +7,7 @@ import androidx.annotation.Keep
  * Project Name: FreeIPTV
  */
 @Keep
-class AlbumAttributesModel(
+data class AlbumAttributesModel(
     val albumName: String,
     val artistName: String,
     val artwork: ArtworkModel,

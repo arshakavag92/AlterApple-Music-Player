@@ -1,7 +1,10 @@
 package com.arshak.freeiptv.screens.home.view.fragment
 
 import androidx.annotation.IdRes
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.arshak.core.di.NavigationModule
 import com.arshak.core.navigation.NavigationManager
 import com.arshak.core.view.screens.fragment.BaseFragment
@@ -22,9 +25,14 @@ class HomeFragment :
         HomeViewModel::class
     ) {
 
-    private val mNestedNavigationManager: NavigationManager by inject(named(NavigationModule.NAVIGATION_FRAGMENT)) {
-        parametersOf(requireActivity().findNavController(R.id.homeHostFragment))
+    private val mNestedNavigationManager: NavigationManager by inject(named(NavigationModule.NAVIGATION_NESTED)) {
+        parametersOf(
+            R.id.homeHostFragment, requireActivity()
+        )
     }
+//    private val mNestedNavigationManager: NavigationManager by inject(named(NavigationModule.NAVIGATION_FRAGMENT)) {
+//        parametersOf(requireActivity().findNavController(R.id.homeHostFragment))
+//    }
 
     override fun setBindingData() {
         fragmentBinding.viewmodel = activityViewModel
@@ -39,6 +47,12 @@ class HomeFragment :
             }
             true
         }
+    }
+
+    override fun observeMandatoryLiveData() {
+        activityViewModel.navigationDestinatonLiveData.observe(viewLifecycleOwner, Observer {
+            navigateWithFadeAnimation(it)
+        })
     }
 
     private fun navigateWithFadeAnimation(@IdRes navigationId: Int) =

@@ -61,7 +61,7 @@ class AuthorisationViewModel(
 
     @Override
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == AppleAuthorisationActivity.REQUEST_CODE_APPLE_MUSIC_AUTH && resultCode == Activity.RESULT_OK) {
+        if (requestCode == AppleAuthorisationActivity.REQUEST_CODE_APPLE_MUSIC_AUTH) {
             handleAuthorisationResult(data)
         }
     }

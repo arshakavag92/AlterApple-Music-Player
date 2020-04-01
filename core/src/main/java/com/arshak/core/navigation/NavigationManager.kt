@@ -19,7 +19,7 @@ class NavigationManager {
 
     constructor(@IdRes navigationViewID: Int, activity: AppCompatActivity) {
         mNavigationViewID = navigationViewID
-        activity.findNavController(navigationViewID)
+        mNavController = activity.findNavController(navigationViewID)
     }
 
     constructor(navController: NavController) {
@@ -29,7 +29,10 @@ class NavigationManager {
     @IdRes
     var mNavigationViewID: Int = View.NO_ID
 
-    private lateinit var mNavController: NavController
+    private var mNavController: NavController
+
+    val mCurrentDestinationId: Int
+        get() = mNavController.currentDestination!!.id
 
     fun navigate(@IdRes actionID: Int, bundle: Bundle? = null) {
         val navOptions: NavOptions = NavOptions.Builder()

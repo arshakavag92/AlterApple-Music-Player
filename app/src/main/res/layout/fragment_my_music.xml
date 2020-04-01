@@ -1,23 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <data>
+
+        <import type="com.arshak.freeiptv.R" />
+
+        <variable
+            name="viewmodel"
+            type="com.arshak.freeiptv.screens.home.viewmodel.MyMusicViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/workInProgressTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/placeholder_work_in_progress"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="RtlHardcoded">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:paddingEnd="@dimen/padding_standard"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
+                <TextView
+                    android:id="@+id/myMusicTextView"
+                    style="@style/MusicPlayer.MyMusic.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_settings"
+                    android:text="@string/my_music" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/myMenuCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentPaddingBottom="@dimen/padding_standard"
+                app:contentPaddingTop="@dimen/padding_standard"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/playlistsTextView"
+                        style="@style/MusicPlayer.MyMusic.Categories"
+                        android:drawableLeft="@drawable/ic_playlist"
+                        android:text="@string/playlists" />
+
+                    <TextView
+                        android:id="@+id/tracksTextView"
+                        style="@style/MusicPlayer.MyMusic.Categories"
+                        android:drawableLeft="@drawable/ic_music"
+                        android:text="@string/tracks" />
+
+                    <TextView
+                        android:id="@+id/albumsTextView"
+                        style="@style/MusicPlayer.MyMusic.Categories"
+                        android:drawableLeft="@drawable/ic_album"
+                        android:text="@string/albums"
+                        app:clickDestination="@{R.id.to_libraryFragment}"
+                        app:viewmodel="@{viewmodel}" />
+
+                    <TextView
+                        android:id="@+id/artistsTextView"
+                        style="@style/MusicPlayer.MyMusic.Categories"
+                        android:drawableLeft="@drawable/ic_musician"
+                        android:text="@string/artists" />
+
+                    <TextView
+                        android:id="@+id/downloadedTracksTextView"
+                        style="@style/MusicPlayer.MyMusic.Categories"
+                        android:drawableLeft="@drawable/ic_download"
+                        android:text="@string/downloaded_tracks" />
+
+                    <TextView
+                        android:id="@+id/tracksOnDeviceTextView"
+                        style="@style/MusicPlayer.MyMusic.Categories"
+                        android:drawableLeft="@drawable/ic_device"
+                        android:text="@string/tracks_on_my_device" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/recentPlayedCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_standard"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/myMenuCardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@drawable/divider_my_music_categories"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/padding_standard"
+                    android:paddingTop="@dimen/padding_standard"
+                    android:paddingRight="@dimen/padding_standard"
+                    android:paddingBottom="@dimen/padding_standard"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/recentlyPlayedTextView"
+                        style="@style/MusicPlayer.MyMusic.Recent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/recently_played" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recentHistoryRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>
 

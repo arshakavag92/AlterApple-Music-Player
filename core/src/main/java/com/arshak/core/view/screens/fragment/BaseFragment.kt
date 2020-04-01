@@ -54,8 +54,11 @@ abstract class BaseFragment<V : ViewDataBinding, out VM : BaseAndroidViewModel>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupViewModel()
-        setupView()
+        loadData()
+        super.onViewCreated(view, savedInstanceState)
     }
+
+    protected open fun loadData() = Unit
 
     protected open fun setupViewModel() = Unit
 

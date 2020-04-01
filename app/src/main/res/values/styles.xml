@@ -44,9 +44,9 @@
     <style name="MusicPlayer.Home" />
 
     <style name="MusicPlayer.Home.Navigation">
-        <item name="android:background">@color/colorPrimary</item>
-        <item name="itemIconTint">@android:color/white</item>
-        <item name="itemTextColor">@android:color/white</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="itemIconTint">@android:color/black</item>
+        <item name="itemTextColor">@android:color/black</item>
         <item name="labelVisibilityMode">labeled</item>
     </style>
 
@@ -55,6 +55,14 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:drawableLeft">@drawable/ic_search</item>
         <item name="android:background">@null</item>
+    </style>
+
+    <style name="MusicPlayer.Home.Search.EditText">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:layout_height">?android:attr/actionBarSize</item>
+        <item name="android:paddingLeft">@dimen/padding_standard</item>
+        <item name="android:paddingRight">@dimen/padding_standard</item>
+        <item name="android:drawableLeft">@null</item>
     </style>
 
     <style name="MusicPlayer.Home.Search.Hint">
@@ -70,7 +78,6 @@
     </style>
 
     <style name="MusicPlayer.Home.Search.Result.Category">
-        <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">15sp</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -88,13 +95,11 @@
     </style>
 
     <style name="MusicPlayer.Home.Search.Result.Song.Name">
-        <item name="android:textColor">@android:color/white</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">12sp</item>
     </style>
 
     <style name="MusicPlayer.Home.Search.Result.Song.Album">
-        <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">12sp</item>
     </style>
 
@@ -113,7 +118,6 @@
     <style name="MusicPlayer.Home.Search.Result.Album.Name">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@android:color/white</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/size_text_album_name</item>
     </style>
@@ -121,7 +125,6 @@
     <style name="MusicPlayer.Home.Search.Result.Album.Artist">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">@dimen/size_text_album_artist</item>
     </style>
 
@@ -152,6 +155,40 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@android:color/darker_gray</item>
         <item name="android:textSize">@dimen/size_text_album_year</item>
+    </style>
+
+    <style name="MusicPlayer.MyMusic">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="MusicPlayer.MyMusic.Title">
+        <item name="android:textSize">@dimen/size_my_music_title</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="MusicPlayer.MyMusic.Categories">
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/padding_standard</item>
+        <item name="android:paddingBottom">@dimen/padding_standard</item>
+        <item name="android:paddingLeft">@dimen/padding_standard</item>
+        <item name="android:paddingRight">@dimen/padding_standard</item>
+        <item name="android:foreground">?android:selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:drawablePadding">20dp</item>
+    </style>
+
+    <style name="MusicPlayer.MyMusic.Recent">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MusicPlayer.Common" />
+
+    <style name="MusicPlayer.Common.RecyclerView">
+
     </style>
 
 </resources>

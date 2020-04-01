@@ -25,4 +25,14 @@
         android:id="@+id/to_searchFragment"
         app:destination="@id/searchFragment" />
 
+    <action
+        android:id="@+id/to_libraryFragment"
+        app:destination="@id/libraryAlbumsFragment" />
+
+    <fragment
+        android:id="@+id/libraryAlbumsFragment"
+        android:name="com.arshak.freeiptv.screens.home.view.fragment.LibraryAlbumsFragment"
+        android:label="LibraryAlbumsFragment"
+        tools:layout="@layout/fragment_user_library" />
+
 </navigation>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/includeToolbar"
+            layout="@layout/layout_include_toolbar" />
+
+        <EditText
+            android:id="@+id/searchEditText"
+            style="@style/MusicPlayer.Home.Search.EditText"
+            android:hint="@string/search" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/albumsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+</layout>
+

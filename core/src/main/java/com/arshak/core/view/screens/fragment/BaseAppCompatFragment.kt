@@ -61,7 +61,7 @@ abstract class BaseAppCompatFragment<out VM : BaseAndroidViewModel>(
         setupView()
     }
 
-    private fun observeMandatoryLiveData() {
+    protected open fun observeMandatoryLiveData() {
         activityViewModel.navigationDestinatonLiveData.observe(this, Observer {
             mNavigationManager.navigate(it)
         })

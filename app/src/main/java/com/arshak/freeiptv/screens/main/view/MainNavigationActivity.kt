@@ -12,6 +12,9 @@ class MainNavigationActivity :
     override fun setupView() = Unit
 
     override fun onBackPressed() {
+//        if (mNavigationManager.mCurrentDestinationId == R.id.homeFragment) {
+//            return
+//        }
         super.onBackPressed()
     }
 }

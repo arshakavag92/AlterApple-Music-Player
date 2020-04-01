@@ -3,14 +3,17 @@
 package com.arshak.freeiptv.screens.authentication.view.binding
 
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
+import androidx.annotation.IdRes
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.arshak.core.data.network.model.*
+import com.arshak.core.data.viewmodel.BaseAndroidViewModel
 import com.arshak.freeiptv.R
 import com.arshak.freeiptv.databinding.ItemSearchResultAlbumBinding
 import com.arshak.freeiptv.databinding.ItemSearchResultArtistBinding
@@ -67,14 +70,12 @@ object HomeBinding {
         })
     }
 
+
     @JvmStatic
-    @BindingAdapter("historyHintAdapter")
-    fun historyHintAdapter(recyclerView: RecyclerView, adapter: SearchHintAdapter) {
-        recyclerView.apply {
-            layoutManager = LinearLayoutManager(recyclerView.context)
-            this.adapter = adapter
-        }
-    }
+    @BindingAdapter("clickDestination", "viewmodel")
+    fun navigateOnClick(view: View, @IdRes destinationId: Int, viewModel: BaseAndroidViewModel) =
+        view.setOnClickListener { viewModel.navigate(destinationId) }
+
 
     @JvmStatic
     @BindingAdapter("onClearClicked")
@@ -185,5 +186,4 @@ object HomeBinding {
             binding.artistattributes = it.attributes
         }
     }
-
 }

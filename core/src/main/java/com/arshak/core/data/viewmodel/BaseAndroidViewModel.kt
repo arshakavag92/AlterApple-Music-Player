@@ -3,6 +3,7 @@ package com.arshak.core.data.viewmodel
 import android.app.Application
 import android.content.Intent
 import android.content.LocusId
+import androidx.annotation.IdRes
 import androidx.annotation.NavigationRes
 import androidx.lifecycle.*
 import com.arshak.core.R
@@ -22,7 +23,7 @@ open class BaseAndroidViewModel(val context: Application) : AndroidViewModel(con
 
     val asyncMessageHandlerLiveData = SingleLiveEvent<String>()
 
-    val navigationDestinatonLiveData = SingleLiveEvent<@NavigationRes Int>()
+    val navigationDestinatonLiveData = SingleLiveEvent<@IdRes Int>()
 
     fun <T : Any> executeBackendCall(call: suspend () -> Response<T>): LiveData<Output<T>> =
         liveData(
@@ -54,8 +55,8 @@ open class BaseAndroidViewModel(val context: Application) : AndroidViewModel(con
         return Output.Error(IOException(context.getString(R.string.message_error_network)))
     }
 
-    protected fun navigate(destinationId: Int) {
-        navigationDestinatonLiveData.value = destinationId
+    fun navigate(destinationId: Int) {
+        navigationDestinatonLiveData.postValue(destinationId)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) = Unit

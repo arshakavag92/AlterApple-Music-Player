@@ -3,7 +3,7 @@
 
     <string name="message_authorisation">Authorise to your Apple account to gain full access to your music library</string>
     <string name="button_authorisation">Login</string>
-    <string name="developer_token">eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik04TTM4WVpCVUMifQ.eyJpc3MiOiJTMjJSNVJGSFA0IiwiaWF0IjoxNTg0NjE2NjA5LCJleHAiOjE1ODU0ODA2MDl9.HGvcGheRXeuXX5gsWSlvLNEr0Vum5DQgkgZ0EXO5DFTuaaUYelbZh1Eb3HLLDrdfgC_Nc15XkUsWmUvsuht_dA</string>
+    <string name="developer_token">eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik04TTM4WVpCVUMifQ.eyJpc3MiOiJTMjJSNVJGSFA0IiwiaWF0IjoxNTg1NTc0OTA1LCJleHAiOjE1ODY0Mzg5MDV9.65rdcUOpUTt7dgnTpwhK7QLNN0PGIpP-FeYIZq-55qQvJdeio4hmv_mygMzCj73SrqB9givV0S_4wpe6TzyHkg</string>
 
     <string name="playback_notification_channel_name">Playback</string>
     <string name="notification_play">Play</string>
@@ -28,4 +28,11 @@
     <string name="more">more</string>
     <string name="see_all">See all</string>
 
+    <!-- My Music Fragment -->
+    <string name="playlists">Playlists</string>
+    <string name="downloaded_tracks">Downloaded Tracks</string>
+    <string name="tracks_on_my_device">Tracks on my device</string>
+    <string name="recently_played">You recently listened to</string>
+
+    <string name="stations">Stations</string>
 </resources>

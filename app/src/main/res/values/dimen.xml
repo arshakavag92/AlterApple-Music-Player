@@ -52,4 +52,8 @@
     <dimen name="size_text_genre_names">11sp</dimen>
     <dimen name="size_container_height">75dp</dimen>
 
+    <!-- My Music Fragment -->
+    <dimen name="size_my_music_title">15sp</dimen>
+    <dimen name="size_settings_button">50dp</dimen>
+
 </resources>
