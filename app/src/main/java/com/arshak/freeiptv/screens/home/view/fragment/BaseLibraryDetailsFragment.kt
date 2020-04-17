@@ -17,25 +17,23 @@ abstract class BaseLibraryDetailsFragment :
         MyMusicViewModel::class
     ) {
 
-    open lateinit var mDetailsAdapter: ListAdapter<*, *>
+    abstract var mDetailsAdapter: ListAdapter<*, *>
     abstract var libraryDetailType: LibraryTimeTypesEnum
     abstract var mDetailsTitleID: Int
 
     override fun loadData() = loadLibraryList()
 
-    override fun setupView() {
-        initListAdapter()
-        fragmentBinding.apply {
-            includeToolbar.toolbarTextView.text = getString(mDetailsTitleID)
-            albumsRecyclerView.apply {
-                layoutManager = LinearLayoutManager(this@BaseLibraryDetailsFragment.context)
-                adapter = mDetailsAdapter
-            }
-            searchEditText.doAfterTextChanged {
-                when (it.isNullOrEmpty()) {
-                    true -> loadLibraryList()
-                    else -> searchInLibraryForTerm(it.toString().trim())
-                }
+    override fun setupView(): Unit = with(fragmentBinding) {
+        includeToolbar.toolbarTextView.text = getString(mDetailsTitleID)
+        includeToolbar.toolbarTextView.setOnClickListener { mNavigationManager.goBack() }
+        albumsRecyclerView.apply {
+            layoutManager = LinearLayoutManager(this@BaseLibraryDetailsFragment.context)
+            adapter = mDetailsAdapter
+        }
+        searchEditText.doAfterTextChanged {
+            when (it.isNullOrEmpty()) {
+                true -> loadLibraryList()
+                else -> searchInLibraryForTerm(it.toString().trim())
             }
         }
     }
@@ -49,8 +47,6 @@ abstract class BaseLibraryDetailsFragment :
                 }
             })
     }
-
-    abstract fun initListAdapter()
 
     abstract fun loadLibraryList()
 

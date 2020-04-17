@@ -9,8 +9,11 @@ import com.google.gson.annotations.SerializedName
  */
 @Keep
 data class SearchResultsModel(
+    @SerializedName("songs")
     val songs: SongsResponseModel?,
+    @SerializedName("artists")
     val artists: ArtistResponseModel?,
+    @SerializedName("albums")
     val albums: AlbumResponseModel?,
     @SerializedName("music-videos")
     val music_videos: MusicVideoResponseModel

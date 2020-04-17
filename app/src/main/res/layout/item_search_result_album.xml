@@ -7,7 +7,7 @@
 
         <variable
             name="albumattributes"
-            type="com.arshak.core.data.network.model.AlbumAttributesModel" />
+            type="com.arshak.core.data.local.model.AlbumUIModel" />
 
     </data>
 

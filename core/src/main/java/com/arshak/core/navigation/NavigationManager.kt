@@ -80,4 +80,6 @@ class NavigationManager {
     fun popBackTo(@IdRes id: Int) =
         mNavController.popBackStack(id, false)
 
+    fun goBack() = mNavController.popBackStack()
+
 }

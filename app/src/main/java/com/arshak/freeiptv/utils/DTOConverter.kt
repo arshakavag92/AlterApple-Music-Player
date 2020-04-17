@@ -1,6 +1,7 @@
 package com.arshak.freeiptv.utils
 
 import android.content.Context
+import com.arshak.core.data.local.model.AlbumUIModel
 import com.arshak.core.data.local.model.ArtistUIModel
 import com.arshak.core.data.local.model.SongsUIModel
 import com.arshak.core.data.network.model.*
@@ -8,11 +9,14 @@ import com.arshak.freeiptv.R
 
 object DTOConverter {
 
-    fun libraryArtistsUIConvert(artists: List<ResourceModel<ArtistModel.Attributes>>?) =
+    fun libraryArtistsUIConvert(artists: List<ResourceModel<ArtistAttributesModel>>?) =
         artists?.map { ArtistUIModel.from(it) }
 
     fun librarySongsUIConverter(songs: List<ResourceModel<SongAttributesModel>>?) =
         songs?.map { SongsUIModel.from(it) }
+
+    fun libraryAlbumsUIConverter(albums: List<ResourceModel<AlbumAttributesModel>>?) =
+        albums?.map { AlbumUIModel.from(it) }
 
 
     fun searchResultsToSearchUIModel(

@@ -1,6 +1,7 @@
 package com.arshak.core.data.network.model
 
 import androidx.annotation.Keep
+import com.google.gson.annotations.SerializedName
 
 /**
  * Created by Arshak Avagyan on 2020-02-24.
@@ -9,10 +10,15 @@ import androidx.annotation.Keep
 
 @Keep
 open class ResponseRootModel<T>(
+    @SerializedName("data")
     val data: List<ResourceModel<T>> = emptyList(),
+    @SerializedName("href")
     val href: String = "",
+    @SerializedName("meta")
     val meta: RelationshipModel<*>? = null,
+    @SerializedName("error")
     val error: List<ErrorModel>? = emptyList(),
+    @SerializedName("next")
     val next: String = ""
 ) {
     override fun equals(other: Any?): Boolean {

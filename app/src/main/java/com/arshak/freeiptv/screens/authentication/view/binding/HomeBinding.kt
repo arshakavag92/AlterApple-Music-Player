@@ -12,6 +12,7 @@ import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
+import com.arshak.core.data.local.model.AlbumUIModel
 import com.arshak.core.data.local.model.ArtistUIModel
 import com.arshak.core.data.local.model.SongsUIModel
 import com.arshak.core.data.network.model.*
@@ -154,13 +155,15 @@ object HomeBinding {
                 container,
                 DTOConverter.librarySongsUIConverter(data as List<ResourceModel<SongAttributesModel>>)!!
             )
+            
             SearchItemTypeEnum.ALBUMS.type -> inflateAlbums(
                 container,
-                data as List<ResourceModel<AlbumAttributesModel>>
+                DTOConverter.libraryAlbumsUIConverter(data as List<ResourceModel<AlbumAttributesModel>>)!!
             )
+
             SearchItemTypeEnum.ARTISTS.type -> inflateArtists(
                 container, musicViewModel,
-                DTOConverter.libraryArtistsUIConvert(data as List<ResourceModel<ArtistModel.Attributes>>)!!
+                DTOConverter.libraryArtistsUIConvert(data as List<ResourceModel<ArtistAttributesModel>>)!!
             )
         }
     }
@@ -184,7 +187,7 @@ object HomeBinding {
 
     private fun inflateAlbums(
         container: LinearLayout,
-        albums: List<ResourceModel<AlbumAttributesModel>>
+        albums: List<AlbumUIModel>
     ) {
         val context = container.context
         val inflater = LayoutInflater.from(context)
@@ -195,7 +198,7 @@ object HomeBinding {
                 container,
                 true
             )
-            binding.albumattributes = it.attributes
+            binding.albumattributes = it
         }
     }
 

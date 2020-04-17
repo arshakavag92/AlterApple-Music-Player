@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.arshak.core.data.local.model.ArtistUIModel
-import com.arshak.core.view.widget.recyclerview.BaseViewModelListAdapter
+import com.arshak.core.view.widget.recyclerview.BaseUIModelListAdapter
 import com.arshak.freeiptv.R
 import com.arshak.freeiptv.databinding.ItemSearchResultArtistBinding
 import com.arshak.freeiptv.screens.home.viewmodel.MyMusicViewModel
 
 class LibraryArtistsAdapter(private val activityViewModel: MyMusicViewModel) :
-    BaseViewModelListAdapter<ArtistUIModel, LibraryArtistsAdapter.ItemViewHolder>() {
+    BaseUIModelListAdapter<ArtistUIModel, LibraryArtistsAdapter.ItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder =
         ItemViewHolder.from(parent)

@@ -16,6 +16,8 @@
         style="@style/MusicPlayer.MyMusic.Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_back"
+        android:drawablePadding="@dimen/padding_standard"
         tools:text="@string/stations" />
 
 </androidx.appcompat.widget.Toolbar>

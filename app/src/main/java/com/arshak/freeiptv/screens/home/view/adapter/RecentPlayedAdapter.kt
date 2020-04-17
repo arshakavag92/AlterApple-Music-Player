@@ -3,26 +3,25 @@ package com.arshak.freeiptv.screens.home.view.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.arshak.core.data.network.model.AlbumAttributesModel
+import com.arshak.core.data.local.model.AlbumUIModel
+import com.arshak.core.view.widget.recyclerview.BaseUIModelListAdapter
 import com.arshak.freeiptv.R
 import com.arshak.freeiptv.databinding.ItemSearchResultAlbumBinding
 
 class RecentPlayedAdapter :
-    ListAdapter<AlbumAttributesModel, RecentPlayedAdapter.ItemViewHolder>(DiffCallback()) {
+    BaseUIModelListAdapter<AlbumUIModel, RecentPlayedAdapter.ItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder =
         ItemViewHolder.from(parent)
 
-    override fun onBindViewHolder(holder: RecentPlayedAdapter.ItemViewHolder, position: Int) =
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) =
         holder.bind(getItem(position))
 
     class ItemViewHolder(val binding: ItemSearchResultAlbumBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: AlbumAttributesModel) = with(itemView) {
+        fun bind(item: AlbumUIModel) = with(itemView) {
             binding.albumattributes = item
         }
 
@@ -38,17 +37,4 @@ class RecentPlayedAdapter :
             }
         }
     }
-}
-
-class DiffCallback : DiffUtil.ItemCallback<AlbumAttributesModel>() {
-    override fun areItemsTheSame(
-        oldItem: AlbumAttributesModel,
-        newItem: AlbumAttributesModel
-    ): Boolean =
-        oldItem.url == newItem.url
-
-    override fun areContentsTheSame(
-        oldItem: AlbumAttributesModel,
-        newItem: AlbumAttributesModel
-    ): Boolean = oldItem == newItem
 }

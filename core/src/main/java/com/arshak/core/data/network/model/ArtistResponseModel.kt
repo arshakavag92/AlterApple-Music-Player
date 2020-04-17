@@ -1,9 +1,7 @@
 package com.arshak.core.data.network.model
 
-import androidx.annotation.Keep
-
 /**
  * Created by Arshak Avagyan on 3/9/20.
  * Project Name: FreeIPTV
  */
-class ArtistResponseModel : ResponseRootModel<ArtistModel.Attributes>()
+class ArtistResponseModel : ResponseRootModel<ArtistAttributesModel>()

@@ -9,8 +9,8 @@ import com.arshak.core.view.screens.fragment.BaseFragment
 import com.arshak.freeiptv.R
 import com.arshak.freeiptv.databinding.FragmentMyMusicBinding
 import com.arshak.freeiptv.screens.home.view.adapter.RecentPlayedAdapter
-import com.arshak.freeiptv.screens.home.viewmodel.HomeViewModel
 import com.arshak.freeiptv.screens.home.viewmodel.MyMusicViewModel
+import com.arshak.freeiptv.utils.DTOConverter
 
 /**
  * Created by Arshak Avagyan on 3/12/20.
@@ -38,11 +38,8 @@ class MyMusicFragment :
     }
 
     private fun showRecentListenedItems(response: HistoryResponseModel) {
-        val albumAttributes =
-            response.data
-                .filter { resource -> resource.type == SearchItemTypeEnum.ALBUMS.type }
-                .map { resource -> resource.attributes!! }
-        mRecentPlayedAdapter.submitList(albumAttributes)
+        val albums = response.data.filter { resource -> resource.type == SearchItemTypeEnum.ALBUMS.type }
+        mRecentPlayedAdapter.submitList(DTOConverter.libraryAlbumsUIConverter(albums))
     }
 
     override fun setupView() {
