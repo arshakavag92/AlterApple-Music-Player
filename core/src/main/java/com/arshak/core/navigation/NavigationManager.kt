@@ -6,9 +6,7 @@ import android.view.View
 import androidx.annotation.AnimRes
 import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavController
-import androidx.navigation.NavOptions
-import androidx.navigation.findNavController
+import androidx.navigation.*
 import com.arshak.core.R
 
 /**
@@ -55,19 +53,27 @@ class NavigationManager {
         @AnimRes exitAnim: Int,
         @AnimRes popEnterAnim: Int = enterAnim,
         @AnimRes popExitAnim: Int = exitAnim,
-        bundle: Bundle? = null
+        bundle: Bundle? = null,
+        singleTop: Boolean = false
     ) {
         val navOptions: NavOptions = NavOptions.Builder()
             .setEnterAnim(enterAnim)
             .setExitAnim(exitAnim)
             .setPopEnterAnim(popEnterAnim)
             .setPopExitAnim(popExitAnim)
+            .setLaunchSingleTop(singleTop)
             .build()
 
         try {
             mNavController.navigate(actionID, bundle, navOptions)
         } catch (e: Exception) {
             Log.d("Exception", e.message!!)
+        }
+    }
+
+    fun onNavigationChangeListener(listener: (destination: NavDestination) -> Unit) {
+        mNavController.addOnDestinationChangedListener { controller, _, _ ->
+            listener(controller.currentDestination!!)
         }
     }
 

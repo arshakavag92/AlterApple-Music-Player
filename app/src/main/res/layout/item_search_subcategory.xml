@@ -7,6 +7,10 @@
         <variable
             name="model"
             type="com.arshak.core.data.network.model.SearchResponseItemUiModel" />
+
+        <variable
+            name="mymusicviewmodel"
+            type="com.arshak.freeiptv.screens.home.viewmodel.MyMusicViewModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -21,8 +25,6 @@
             android:layout_height="wrap_content"
             android:divider="@drawable/divider_search_category_vertical"
             android:orientation="vertical"
-            android:paddingHorizontal="@dimen/padding_standard"
-            android:paddingVertical="@dimen/padding_standard"
             android:showDividers="middle">
 
             <LinearLayout
@@ -33,6 +35,8 @@
                     android:id="@+id/subCategoryTitleTextView"
                     style="@style/MusicPlayer.Home.Search.Result.Category"
                     android:layout_weight="1"
+                    android:paddingHorizontal="@dimen/padding_small"
+                    android:paddingVertical="@dimen/padding_small"
                     android:text="@{model.name}"
                     tools:text="Inanaaaa" />
 
@@ -41,6 +45,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:paddingHorizontal="@dimen/padding_small"
                     android:text="@string/see_all"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/size_category_text_more"
@@ -53,6 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                app:musicviewmodel="@{mymusicviewmodel}"
                 app:subResults="@{model}" />
 
         </LinearLayout>

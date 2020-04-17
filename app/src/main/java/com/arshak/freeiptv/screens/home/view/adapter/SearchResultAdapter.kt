@@ -1,7 +1,6 @@
 package com.arshak.freeiptv.screens.home.view.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
@@ -10,8 +9,9 @@ import androidx.recyclerview.widget.ListAdapter
 import com.arshak.core.data.network.model.SearchResponseItemUiModel
 import com.arshak.freeiptv.R
 import com.arshak.freeiptv.databinding.ItemSearchSubcategoryBinding
+import com.arshak.freeiptv.screens.home.viewmodel.MyMusicViewModel
 
-class SearchResultAdapter :
+class SearchResultAdapter(val viewModel: MyMusicViewModel) :
     ListAdapter<SearchResponseItemUiModel<*>, SearchResultAdapter.SearchResultUiModelViewHolder>(
         SearchResultUiModelDiffCallback()
     ) {
@@ -24,12 +24,16 @@ class SearchResultAdapter :
     ): SearchResultUiModelViewHolder = SearchResultUiModelViewHolder.from(parent)
 
     override fun onBindViewHolder(holder: SearchResultUiModelViewHolder, position: Int) =
-        holder.bind(getItem(position))
+        holder.bind(getItem(position), viewModel)
 
     class SearchResultUiModelViewHolder constructor(val binding: ItemSearchSubcategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: SearchResponseItemUiModel<*>) = with(itemView) {
+        fun bind(
+            item: SearchResponseItemUiModel<*>,
+            viewModel: MyMusicViewModel
+        ) = with(itemView) {
             binding.model = item
+            binding.mymusicviewmodel = viewModel
         }
 
         companion object {

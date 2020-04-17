@@ -21,12 +21,12 @@ import java.util.concurrent.TimeUnit
 
 @GlideModule
 class GlideAppModule : AppGlideModule() {
-    override fun registerComponents(context: Context, glide: Glide, registry: Registry) {
-        val client = get().koin.get<AppleHttpClient>().getTrustedHttpClient()
-        val factory = OkHttpUrlLoader.Factory(client)
-        glide.registry.replace(
-            GlideUrl::class.java,
-            InputStream::class.java, factory
-        )
-    }
+//    override fun registerComponents(context: Context, glide: Glide, registry: Registry) {
+//        val client = get().koin.get<AppleHttpClient>().getTrustedHttpClient()
+//        val factory = OkHttpUrlLoader.Factory(client)
+//        glide.registry.replace(
+//            GlideUrl::class.java,
+//            InputStream::class.java, factory
+//        )
+//    }
 }

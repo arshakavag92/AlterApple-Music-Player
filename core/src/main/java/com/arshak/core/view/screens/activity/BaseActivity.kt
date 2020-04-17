@@ -7,8 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.arshak.core.data.viewmodel.BaseAndroidViewModel
-import org.koin.androidx.viewmodel.ext.android.getViewModel
+import com.arshak.core.di.NavigationModule
+import com.arshak.core.navigation.NavigationManager
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
+import org.koin.core.qualifier.named
 import kotlin.reflect.KClass
 
 /**

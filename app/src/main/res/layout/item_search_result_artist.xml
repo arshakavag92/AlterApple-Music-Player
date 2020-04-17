@@ -5,25 +5,40 @@
     <data>
 
         <variable
-            name="artistattributes"
-            type="com.arshak.core.data.network.model.ArtistModel.Attributes" />
+            name="artistuimodel"
+            type="com.arshak.core.data.local.model.ArtistUIModel" />
+
+        <variable
+            name="viewmodel"
+            type="com.arshak.freeiptv.screens.home.viewmodel.MyMusicViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_container_height"
-        android:background="@color/search_result_item_color">
+        android:layout_height="wrap_content"
+        android:background="@color/search_result_item_color"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground">
 
+        <ImageView
+            android:id="@+id/artistImageView"
+            style="@style/MusicPlayer.Artist.Artwork"
+            app:artistID="@{artistuimodel.id}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:viewmodel="@{viewmodel}" />
 
         <TextView
             android:id="@+id/artistNameTextView"
             style="@style/MusicPlayer.Home.Search.Result.Artist.Name"
             android:layout_marginLeft="@dimen/padding_small"
-            android:text="@{artistattributes.name}"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginTop="@dimen/padding_small"
+            android:text="@{artistuimodel.attributes.name}"
+            app:layout_constraintLeft_toRightOf="@id/artistImageView"
+            app:layout_constraintTop_toTopOf="@id/artistImageView" />
 
         <TextView
             android:id="@+id/genresTextView"
@@ -31,11 +46,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/padding_small"
-            android:text="@{artistattributes.genreNames.toString()}"
-            app:layout_constraintLeft_toLeftOf="parent"
+            android:text="@{artistuimodel.attributes.genreNames.toString()}"
+            app:layout_constraintLeft_toRightOf="@id/artistImageView"
             app:layout_constraintTop_toBottomOf="@id/artistNameTextView" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/moreButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/padding_small"
+            android:src="@drawable/ic_more"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 

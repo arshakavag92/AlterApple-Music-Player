@@ -22,5 +22,33 @@ class MusicRepository(private val musicApi: MusicApi) : BaseRepository() {
         types: List<String> = emptyList()
     ) = musicApi.librarySearch(term = term, limit = limit, offset = offset, types = types)
 
+    suspend fun libraryPlaylist(
+        include: List<String>? = null,
+        limit: Int? = null,
+        offset: String? = null
+    ) =
+        musicApi.libraryPlaylists(include, limit = limit, offset = offset)
+
+    suspend fun libraryArtist(
+        include: List<String>? = null,
+        limit: Int? = null,
+        offset: String? = null
+    ) =
+        musicApi.libraryArtists(include, limit = limit, offset = offset)
+
+    suspend fun librarySongs(
+        include: List<String>? = null,
+        limit: Int? = null,
+        offset: String? = null
+    ) =
+        musicApi.librarySongs(include, limit = limit, offset = offset)
+
+    suspend fun getLibraryArtistDetails(
+        id: String,
+        relationship: String,
+        include: List<String>? = null
+    ) =
+        musicApi.getLibraryArtistsDetails(id, relationship, include)
+
 
 }

@@ -4,11 +4,10 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.arshak.core.data.network.model.AlbumResponseModel
-import com.arshak.core.data.network.model.LibraryTimeTypes
+import com.arshak.core.data.network.model.LibraryTimeTypesEnum
 import com.arshak.core.data.network.model.Output
 import com.arshak.core.view.screens.fragment.BaseFragment
 import com.arshak.freeiptv.R
-
 import com.arshak.freeiptv.databinding.FragmentUserLibraryBinding
 import com.arshak.freeiptv.screens.home.view.adapter.RecentPlayedAdapter
 import com.arshak.freeiptv.screens.home.viewmodel.MyMusicViewModel
@@ -22,7 +21,7 @@ class LibraryAlbumsFragment : BaseFragment<FragmentUserLibraryBinding, MyMusicVi
     private val recentPlayedAdapter = RecentPlayedAdapter()
     override fun loadData() = loadLibraryAlbums()
 
-    private fun loadLibraryAlbums() = activityViewModel.libraryAlbmus().observe(this, Observer {
+    private fun loadLibraryAlbums() = activityViewModel.libraryAlbums().observe(this, Observer {
         when (it) {
             is Output.Success -> showLibraryAlbums(it.output)
             is Output.Error -> Unit
@@ -32,13 +31,13 @@ class LibraryAlbumsFragment : BaseFragment<FragmentUserLibraryBinding, MyMusicVi
     private fun showLibraryAlbums(response: AlbumResponseModel?) {
         val albumAttributes =
             response?.data
-                ?.filter { resource -> resource.type == LibraryTimeTypes.ALBUMS.type }
+                ?.filter { resource -> resource.type == LibraryTimeTypesEnum.ALBUMS.type }
                 ?.map { resource -> resource.attributes!! } ?: emptyList()
         recentPlayedAdapter.submitList(albumAttributes)
     }
 
     private fun searchInLibraryForAlbums(term: String) =
-        activityViewModel.searchInLibraryAlbums(term, listOf(LibraryTimeTypes.ALBUMS.type))
+        activityViewModel.searchInLibrary(term, listOf(LibraryTimeTypesEnum.ALBUMS.type))
             .observe(viewLifecycleOwner,
                 Observer {
                     when (it) {

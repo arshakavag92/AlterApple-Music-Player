@@ -1,7 +1,10 @@
 package com.arshak.core.extensions
 
 import android.app.Activity
+import android.content.Context
 import android.content.SharedPreferences
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
@@ -81,6 +84,19 @@ fun Activity.shortToast(message: Int) {
 
 fun Activity.longToast(messageResourceId: Int) {
     toast(messageResourceId, Toast.LENGTH_LONG)
+}
+
+fun Fragment.hideKeyboard() {
+    view?.let { activity?.hideKeyboard(it) }
+}
+
+fun Activity.hideKeyboard() {
+    hideKeyboard(currentFocus ?: View(this))
+}
+
+fun Context.hideKeyboard(view: View) {
+    val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+    inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
 }
 
 

@@ -14,8 +14,8 @@ class GlideUrlWithQueryParameter(
     companion object {
         private fun buildUrl(
             baseUrl: String,
-            width: Int,
-            height: Int
+            width: Int = 100,
+            height: Int = 100
         ): String {
             return baseUrl.replace("{w}", width.toString()).replace("{h}", height.toString())
         }

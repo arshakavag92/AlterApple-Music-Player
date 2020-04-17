@@ -29,7 +29,7 @@ abstract class BaseAppCompatActivity(
 ) :
     AppCompatActivity(layoutResId) {
 
-    val mNavigationManager: NavigationManager by inject(named(NavigationModule.NAVIGATION_ACTIVITY)) {
+    open val mNavigationManager: NavigationManager by inject(named(NavigationModule.NAVIGATION_ACTIVITY)) {
         parametersOf(
             navigationViewId, this
         )

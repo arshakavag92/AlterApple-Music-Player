@@ -142,51 +142,52 @@ class MediaPlaybackService : MediaBrowserServiceCompat(),
     override fun onBufferingStateChanged(
         playerController: MediaPlayerController,
         buffering: Boolean
-    ) {
-    }
+    ) = Unit
 
     override fun onCurrentItemChanged(
         playerController: MediaPlayerController,
         previousItem: PlayerQueueItem?,
         currentItem: PlayerQueueItem?
-    ) {
-    }
+    ) = Unit
 
     override fun onItemEnded(
         playerController: MediaPlayerController,
         queueItem: PlayerQueueItem,
         endPosition: Long
-    ) {
-    }
+    ) = Unit
 
     override fun onMetadataUpdated(
         playerController: MediaPlayerController,
         currentItem: PlayerQueueItem
-    ) {
-    }
+    ) = Unit
 
     override fun onPlaybackQueueChanged(
         playerController: MediaPlayerController,
         playbackQueueItems: List<PlayerQueueItem>
-    ) {
-    }
+    ) = Unit
 
     override fun onPlaybackQueueItemsAdded(
         playerController: MediaPlayerController,
         queueInsertionType: Int,
         containerType: Int,
         itemType: Int
-    ) {
-    }
+    ) = Unit
 
     override fun onPlaybackError(
         playerController: MediaPlayerController,
         error: MediaPlayerException
-    ) {
-    }
+    ) = Unit
 
-    override fun onPlaybackRepeatModeChanged(playerController: MediaPlayerController, @PlaybackRepeatMode currentRepeatMode: Int) {}
-    override fun onPlaybackShuffleModeChanged(playerController: MediaPlayerController, @PlaybackShuffleMode currentShuffleMode: Int) {}
+    override fun onPlaybackRepeatModeChanged(
+        playerController: MediaPlayerController,
+        @PlaybackRepeatMode currentRepeatMode: Int
+    ) = Unit
+
+    override fun onPlaybackShuffleModeChanged(
+        playerController: MediaPlayerController,
+        @PlaybackShuffleMode currentShuffleMode: Int
+    ) = Unit
+
     override fun onTaskRemoved(rootIntent: Intent) {
         serviceHandler!!.sendEmptyMessage(MESSAGE_TASK_REMOVED)
     }

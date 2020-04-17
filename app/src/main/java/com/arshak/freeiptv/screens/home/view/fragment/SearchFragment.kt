@@ -2,10 +2,8 @@ package com.arshak.freeiptv.screens.home.view.fragment
 
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.arshak.core.data.network.model.Output
-import com.arshak.core.data.network.model.SearchItemTypeEnum
-import com.arshak.core.data.network.model.SearchResponseItemUiModel
-import com.arshak.core.data.network.model.SearchResponseModel
+import com.arshak.core.data.network.model.*
+import com.arshak.core.extensions.hideKeyboard
 import com.arshak.core.view.screens.fragment.BaseFragment
 import com.arshak.freeiptv.R
 import com.arshak.freeiptv.databinding.FragmentSearchBinding
@@ -13,7 +11,9 @@ import com.arshak.freeiptv.screens.home.view.adapter.SearchHintAdapter
 import com.arshak.freeiptv.screens.home.view.adapter.SearchResultAdapter
 import com.arshak.freeiptv.screens.home.view.adapter.SearchResultItemCallback
 import com.arshak.freeiptv.screens.home.viewmodel.HomeViewModel
+import com.arshak.freeiptv.utils.DTOConverter
 import kotlinx.android.synthetic.main.fragment_search.*
+import org.koin.android.ext.android.get
 
 /**
  * Created by Arshak Avagyan on 2020-02-24.
@@ -27,11 +27,14 @@ class SearchFragment :
 
     private val mSearchHintAdapter: SearchHintAdapter = SearchHintAdapter().apply {
         callBack = object : SearchHintAdapter.SearchCallBack {
-            override fun onSearchClicked(term: String) = activityViewModel.searchForItems(term)
+            override fun onSearchClicked(term: String) {
+                this@SearchFragment.hideKeyboard()
+                activityViewModel.searchForItems(term)
+            }
         }
     }
 
-    private val mSearchResultAdapter: SearchResultAdapter = SearchResultAdapter().apply {
+    private val mSearchResultAdapter: SearchResultAdapter = SearchResultAdapter(get()).apply {
         callback = object : SearchResultItemCallback {
             override fun onItemClick() = Unit
 
@@ -62,40 +65,10 @@ class SearchFragment :
     }
 
     private fun handleSearchResultResponse(searchResponseModel: SearchResponseModel) {
-        val data: MutableList<SearchResponseItemUiModel<*>> = mutableListOf()
-        val response = searchResponseModel.results
-        data.apply {
-            add(
-                SearchResponseItemUiModel(
-                    href = response.songs.href,
-                    type = SearchItemTypeEnum.SONGS.type,
-                    name = getString(R.string.tracks),
-                    data = response.songs.data,
-                    id = response.songs.href
-                )
-            )
-            add(
-                SearchResponseItemUiModel(
-                    href = response.artists.href,
-                    type = SearchItemTypeEnum.ARTISTS.type,
-                    name = getString(R.string.artists),
-                    data = response.artists.data,
-                    id = response.artists.href
-                )
-            )
-            // TODO albums
-            add(
-                SearchResponseItemUiModel(
-                    href = response.albums.href,
-                    type = SearchItemTypeEnum.ALBUMS.type,
-                    name = getString(R.string.albums),
-                    data = response.albums.data,
-                    id = response.albums.href
-                )
-            )
-        }
+        val data = DTOConverter.searchResultsToSearchUIModel(searchResponseModel, this.context!!)
         setupSearchResultList(data)
     }
+
 
     private fun setupHintResultList(searchHintData: MutableList<String>) =
         mSearchHintAdapter.apply {
@@ -115,16 +88,18 @@ class SearchFragment :
         fragmentBinding.viewmodel = activityViewModel
     }
 
-    override fun setupView() {
-        fragmentBinding.searchFragmentRecyclerView.apply {
+    override fun setupView(): Unit = with(fragmentBinding) {
+        searchFragmentRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@SearchFragment.context)
             adapter = mSearchHintAdapter
         }
-
-        fragmentBinding.searchView.setOnCloseListener {
-            mSearchHintAdapter.submitList(mutableListOf())
-            mSearchResultAdapter.submitList(mutableListOf())
-            false
+        searchView.apply {
+            isIconified = false
+            setOnCloseListener {
+                mSearchHintAdapter.submitList(mutableListOf())
+                mSearchResultAdapter.submitList(mutableListOf())
+                false
+            }
         }
     }
 }

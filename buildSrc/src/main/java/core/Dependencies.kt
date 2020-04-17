@@ -35,6 +35,7 @@ object Dependencies {
         const val lottie_version = "3.3.1"
 
         const val lib_glide_version = "4.11.0"
+        const val lib_glide_transformations_version = "4.1.0"
         const val lib_picasso_version = "2.71828"
         const val lib_play_services_version = "15.0.1"
         const val lib_material_version = "1.0.0"
@@ -42,6 +43,7 @@ object Dependencies {
         const val lib_coroutines_version = "1.3.0"
         const val lib_joda_time = "2.9.9"
         const val lib_preferences_version = "0.1.7"
+        const val lib_facebook_schimmer_version = "0.5.0"
     }
 
     object AndroidXLibraries {
@@ -100,11 +102,15 @@ object Dependencies {
             "com.github.bumptech.glide:compiler:${Versions.lib_glide_version}"
         const val glide_okhttp_integration =
             "com.github.bumptech.glide:okhttp3-integration:${Versions.lib_glide_version}"
+        const val glide_transformations =
+            "jp.wasabeef:glide-transformations:${Versions.lib_glide_transformations_version}"
         const val picasso = "com.squareup.picasso:picasso:${Versions.lib_picasso_version}"
         const val lottie = "com.airbnb.android:lottie:${Versions.lottie_version}"
 
         const val secure_preferences =
             "com.scottyab:secure-preferences-lib:${Versions.lib_preferences_version}"
+        const val facebook_schimmer_library =
+            "com.facebook.shimmer:shimmer:${Versions.lib_facebook_schimmer_version}"
     }
 
     object Kotlin {

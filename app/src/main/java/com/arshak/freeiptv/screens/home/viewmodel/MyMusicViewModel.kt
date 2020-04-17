@@ -9,8 +9,18 @@ class MyMusicViewModel(context: Application, private val musicRepository: MusicR
 
     fun history() = executeBackendCall { musicRepository.history() }
 
-    fun libraryAlbmus() = executeBackendCall { musicRepository.libraryAlbums() }
+    fun libraryAlbums() = executeBackendCall { musicRepository.libraryAlbums() }
 
-    fun searchInLibraryAlbums(term: String, types: List<String>) =
+    fun searchInLibrary(term: String, types: List<String>) =
         executeBackendCall { musicRepository.librarySearch(term, types = types) }
+
+    fun libraryPlaylist() = executeBackendCall { musicRepository.libraryPlaylist() }
+
+    fun libraryArtists() = executeBackendCall { musicRepository.libraryArtist() }
+
+    fun librarySongs() = executeBackendCall { musicRepository.librarySongs() }
+
+    fun getLibraryArtistDetails(id: String) =
+        executeBackendCall { musicRepository.getLibraryArtistDetails(id, "albums") }
+
 }

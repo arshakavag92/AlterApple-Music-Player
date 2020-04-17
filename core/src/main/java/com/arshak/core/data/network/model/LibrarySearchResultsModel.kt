@@ -10,5 +10,7 @@ data class LibrarySearchResultsModel(
     @SerializedName("library-artists")
     val artists: ArtistResponseModel?,
     @SerializedName("library-albums")
-    val albums: AlbumResponseModel?
+    val albums: AlbumResponseModel?,
+    @SerializedName("library-playlists")
+    val playlists: PlaylistsResponseModel?
 )

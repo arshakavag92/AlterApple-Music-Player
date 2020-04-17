@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="playlistattribute"
+            type="com.arshak.core.data.network.model.LibraryPlaylistAttributesModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:paddingLeft="@dimen/padding_standard"
+        android:paddingTop="@dimen/padding_small"
+        android:paddingRight="@dimen/padding_standard"
+        android:paddingBottom="@dimen/padding_small">
+
+        <ImageView
+            android:id="@+id/playlistImageView"
+            style="@style/MusicPlayer.Playlist.ImageView"
+            app:artwork="@{playlistattribute.artwork}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/nameTextView"
+            style="@style/MusicPlayer.Playlist.Name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_standard"
+            android:layout_marginTop="@dimen/padding_standard"
+            android:text="@{playlistattribute.name}"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@id/playlistImageView"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/playlistImageView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

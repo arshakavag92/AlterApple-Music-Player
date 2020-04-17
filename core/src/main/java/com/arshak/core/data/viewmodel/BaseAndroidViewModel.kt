@@ -46,13 +46,11 @@ open class BaseAndroidViewModel(val context: Application) : AndroidViewModel(con
                     responseBody.error.isNullOrEmpty() -> Output.Success(responseBody) as Output<T>
                     else -> Output.Error(IOException(responseBody.error.toString()))
                 }
-
                 is T -> Output.Success(responseBody)
-
                 else -> Output.Error(IOException(context.getString(R.string.message_error_network)))
             }
         }
-        return Output.Error(IOException(context.getString(R.string.message_error_network)))
+        return Output.Error(IOException(response.errorBody().toString()))
     }
 
     fun navigate(destinationId: Int) {

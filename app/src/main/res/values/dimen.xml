@@ -56,4 +56,7 @@
     <dimen name="size_my_music_title">15sp</dimen>
     <dimen name="size_settings_button">50dp</dimen>
 
+    <!-- Playlists Fragment -->
+    <dimen name="size_playlist_cover">100dp</dimen>
+    <dimen name="size_playlist_title">15sp</dimen>
 </resources>

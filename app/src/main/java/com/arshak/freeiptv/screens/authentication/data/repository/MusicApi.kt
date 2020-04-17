@@ -56,5 +56,35 @@ interface MusicApi {
         @Query("types") types: List<String>?
     ): Response<LibrarySearchResponseModel>
 
+    @GET(NetworkConstants.PATH_LIBRARY_PLAYLISTS)
+    suspend fun libraryPlaylists(
+        @Query("include") include: List<String>? = null,
+        @Query("l") localisation: String? = null,
+        @Query("limit") limit: Int?,
+        @Query("offset") offset: String?
+    ): Response<PlaylistsResponseModel>
 
+    @GET(NetworkConstants.PATH_LIBRARY_ARTISTS)
+    suspend fun libraryArtists(
+        @Query("include") include: List<String>? = null,
+        @Query("l") localisation: String? = null,
+        @Query("limit") limit: Int?,
+        @Query("offset") offset: String?
+    ): Response<ArtistResponseModel>
+
+    @GET(NetworkConstants.PATH_LIBRARY_SONGS)
+    suspend fun librarySongs(
+        @Query("include") include: List<String>? = null,
+        @Query("l") localisation: String? = null,
+        @Query("limit") limit: Int?,
+        @Query("offset") offset: String?
+    ): Response<SongsResponseModel>
+
+    @GET(NetworkConstants.PATH_LIBRARY_ARTIST_DETAILS)
+    suspend fun getLibraryArtistsDetails(
+        @Path("id") id: String,
+        @Path("relationship") relationship: String,
+        @Query("include") include: List<String>? = null,
+        @Query("l") localisation: String? = null
+    ): Response<AlbumResponseModel>
 }

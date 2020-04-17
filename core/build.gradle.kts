@@ -73,7 +73,7 @@ dependencies {
 //    api(Dependencies.ThirdPartyLibs.glide_okhttp_integration) {
 //        exclude("glide-parent")
 //    }
-    
+
     api(Dependencies.ThirdPartyLibs.picasso)
 
     api(Dependencies.ThirdPartyLibs.retrofit)
@@ -82,6 +82,7 @@ dependencies {
     api(Dependencies.ThirdPartyLibs.retrofit_logging_interceptor)
     api(Dependencies.ThirdPartyLibs.joda_time)
     api(Dependencies.ThirdPartyLibs.lottie)
+    api(Dependencies.ThirdPartyLibs.facebook_schimmer_library)
 
     api(Dependencies.ThirdPartyLibs.koin_android)
     api(Dependencies.ThirdPartyLibs.koin_androidx_extensions)

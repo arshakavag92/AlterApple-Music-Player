@@ -59,13 +59,17 @@
                         android:id="@+id/playlistsTextView"
                         style="@style/MusicPlayer.MyMusic.Categories"
                         android:drawableLeft="@drawable/ic_playlist"
-                        android:text="@string/playlists" />
+                        android:text="@string/playlists"
+                        app:clickDestination="@{R.id.to_libraryPlaylistFragment}"
+                        app:viewmodel="@{viewmodel}" />
 
                     <TextView
                         android:id="@+id/tracksTextView"
                         style="@style/MusicPlayer.MyMusic.Categories"
                         android:drawableLeft="@drawable/ic_music"
-                        android:text="@string/tracks" />
+                        android:text="@string/tracks"
+                        app:clickDestination="@{R.id.to_libraryTracksFragment}"
+                        app:viewmodel="@{viewmodel}" />
 
                     <TextView
                         android:id="@+id/albumsTextView"
@@ -79,7 +83,9 @@
                         android:id="@+id/artistsTextView"
                         style="@style/MusicPlayer.MyMusic.Categories"
                         android:drawableLeft="@drawable/ic_musician"
-                        android:text="@string/artists" />
+                        android:text="@string/artists"
+                        app:clickDestination="@{R.id.to_libraryArtistsFragment}"
+                        app:viewmodel="@{viewmodel}" />
 
                     <TextView
                         android:id="@+id/downloadedTracksTextView"
@@ -110,9 +116,7 @@
                     android:layout_height="wrap_content"
                     android:divider="@drawable/divider_my_music_categories"
                     android:orientation="vertical"
-                    android:paddingLeft="@dimen/padding_standard"
                     android:paddingTop="@dimen/padding_standard"
-                    android:paddingRight="@dimen/padding_standard"
                     android:paddingBottom="@dimen/padding_standard"
                     android:showDividers="middle">
 
@@ -125,6 +129,7 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recentHistoryRecyclerView"
+                        style="@style/MusicPlayer.Common.RecyclerView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:nestedScrollingEnabled="false" />

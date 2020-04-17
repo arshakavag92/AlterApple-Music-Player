@@ -5,18 +5,6 @@
     android:id="@+id/nav_home"
     app:startDestination="@id/myMusicFragment">
 
-    <fragment
-        android:id="@+id/searchFragment"
-        android:name="com.arshak.freeiptv.screens.home.view.fragment.SearchFragment"
-        android:label="SearchFragment"
-        tools:layout="@layout/fragment_search" />
-
-    <fragment
-        android:id="@+id/myMusicFragment"
-        android:name="com.arshak.freeiptv.screens.home.view.fragment.MyMusicFragment"
-        android:label="MyMusicFragment"
-        tools:layout="@layout/fragment_my_music" />
-
     <action
         android:id="@+id/to_myMusicFragment"
         app:destination="@id/myMusicFragment" />
@@ -29,10 +17,52 @@
         android:id="@+id/to_libraryFragment"
         app:destination="@id/libraryAlbumsFragment" />
 
+    <action
+        android:id="@+id/to_libraryPlaylistFragment"
+        app:destination="@id/libraryPlaylistFragment" />
+
+    <action
+        android:id="@+id/to_libraryArtistsFragment"
+        app:destination="@id/libraryArtistsFragment" />
+
+    <action
+        android:id="@+id/to_libraryTracksFragment"
+        app:destination="@id/libraryTracksFragment" />
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.arshak.freeiptv.screens.home.view.fragment.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search" />
+
+    <fragment
+        android:id="@+id/myMusicFragment"
+        android:name="com.arshak.freeiptv.screens.home.view.fragment.MyMusicFragment"
+        android:label="MyMusicFragment"
+        tools:layout="@layout/fragment_my_music" />
+
     <fragment
         android:id="@+id/libraryAlbumsFragment"
         android:name="com.arshak.freeiptv.screens.home.view.fragment.LibraryAlbumsFragment"
         android:label="LibraryAlbumsFragment"
+        tools:layout="@layout/fragment_user_library" />
+
+    <fragment
+        android:id="@+id/libraryPlaylistFragment"
+        android:name="com.arshak.freeiptv.screens.home.view.fragment.LibraryPlaylistFragment"
+        android:label="LibraryPlaylistFragment"
+        tools:layout="@layout/fragment_user_library" />
+
+    <fragment
+        android:id="@+id/libraryArtistsFragment"
+        android:name="com.arshak.freeiptv.screens.home.view.fragment.LibraryArtistsFragment"
+        android:label="LibraryArtistsFragment"
+        tools:layout="@layout/fragment_user_library" />
+
+    <fragment
+        android:id="@+id/libraryTracksFragment"
+        android:name="com.arshak.freeiptv.screens.home.view.fragment.LibraryTracksFragment"
+        android:label="LibraryTracksFragment"
         tools:layout="@layout/fragment_user_library" />
 
 </navigation>

@@ -16,21 +16,21 @@
         android:background="@android:color/white"
         android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/padding_standard">
 
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/searchView"
-                style="@style/MusicPlayer.Home.Search"
-                app:afterTextChanged="@{viewmodel::onTextChanged}"
-                app:onTextSubmitted="@{viewmodel::onTextSubmitted}" />
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            style="@style/MusicPlayer.Home.Search"
+            android:paddingHorizontal="@dimen/padding_standard"
+            app:afterTextChanged="@{viewmodel::onTextChanged}"
+            app:onTextSubmitted="@{viewmodel::onTextSubmitted}">
 
-        </com.google.android.material.textfield.TextInputLayout>
+            <requestFocus />
+
+        </androidx.appcompat.widget.SearchView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/searchFragmentRecyclerView"
+            style="@style/MusicPlayer.Common.RecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
