@@ -1,9 +1,13 @@
 package com.arshak.core.data.local.model
 
+import android.os.Parcelable
 import androidx.annotation.Keep
+import androidx.databinding.BaseObservable
+import kotlinx.android.parcel.Parcelize
 
 @Keep
-open class BaseUIModel(open val id: String?) {
+@Parcelize
+open class BaseUIModel(open val id: String?) : BaseObservable(), Parcelable {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false

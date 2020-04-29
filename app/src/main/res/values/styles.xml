@@ -220,4 +220,33 @@
         <item name="android:textColor">@android:color/black</item>
     </style>
 
+    <style name="MusicPlayer.Details" />
+
+    <style name="MusicPlayer.Details.Album" />
+
+    <style name="MusicPlayer.Details.Album.Cover">
+        <item name="layout_constraintWidth_percent">0.5</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="MusicPlayer.Details.Album.Name">
+        <item name="android:textSize">@dimen/size_text_album_details_name</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MusicPlayer.Details.Album.ArtistName">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="MusicPlayer.Details.Album.ReleaseDate">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
 </resources>

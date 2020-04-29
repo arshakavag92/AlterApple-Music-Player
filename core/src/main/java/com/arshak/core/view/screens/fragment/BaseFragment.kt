@@ -9,8 +9,10 @@ import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.navigation.NavArgs
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.arshak.core.data.viewmodel.BaseAndroidViewModel
 import com.arshak.core.di.NavigationModule
 import com.arshak.core.navigation.NavigationManager
@@ -53,10 +55,13 @@ abstract class BaseFragment<V : ViewDataBinding, out VM : BaseAndroidViewModel>(
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        getSafeArgumentsFromBundle()
         setupViewModel()
         loadData()
         super.onViewCreated(view, savedInstanceState)
     }
+
+    protected open fun getSafeArgumentsFromBundle() = Unit
 
     protected open fun loadData() = Unit
 

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="songuimodel"
+            type="com.arshak.core.data.local.model.SongsUIModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground"
+        android:paddingHorizontal="@dimen/padding_small"
+        android:paddingVertical="@dimen/padding_standard">
+
+        <ImageView
+            android:id="@+id/singleIconImageView"
+            android:layout_width="@dimen/size_single_icon_track"
+            android:layout_height="@dimen/size_single_icon_track"
+            android:src="@drawable/ic_star_single"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/trackNumberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_small"
+            android:text="@{songuimodel.trackNumber}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/singleIconImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1" />
+
+        <TextView
+            android:id="@+id/trackNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/padding_standard"
+            android:text="@{songuimodel.name}"
+            android:textSize="@dimen/size_text_track_name"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/trackNumberTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="What the dead men say" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

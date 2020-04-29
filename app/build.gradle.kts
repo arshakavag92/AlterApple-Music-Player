@@ -5,6 +5,7 @@ plugins {
     id("kotlin-android")
     id("kotlin-android-extensions")
     id("kotlin-kapt")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -48,6 +49,13 @@ android {
     compileOptions {
         sourceCompatibility = Config.JAVA_VERSION
         targetCompatibility = Config.JAVA_VERSION
+    }
+
+    tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinCompile::class).all {
+        kotlinOptions {
+            val options = this as org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
+            options.jvmTarget = "1.8"
+        }
     }
 }
 

@@ -59,4 +59,11 @@
     <!-- Playlists Fragment -->
     <dimen name="size_playlist_cover">100dp</dimen>
     <dimen name="size_playlist_title">15sp</dimen>
+
+    <!-- Album Details Fragment -->
+    <dimen name="size_album__details_cover">100dp</dimen>
+    <dimen name="size_text_album_details_name">15sp</dimen>
+    <dimen name="size_single_icon_track">15dp</dimen>
+    <dimen name="size_text_track_name">15sp</dimen>
+    <dimen name="size_more_settings_button">35dp</dimen>
 </resources>

@@ -7,6 +7,7 @@ import androidx.annotation.AnimRes
 import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.*
+import androidx.navigation.fragment.FragmentNavigator
 import com.arshak.core.R
 
 /**
@@ -27,32 +28,41 @@ class NavigationManager {
     @IdRes
     var mNavigationViewID: Int = View.NO_ID
 
-    private var mNavController: NavController
-
-    val mCurrentDestinationId: Int
-        get() = mNavController.currentDestination!!.id
-
-    fun navigate(@IdRes actionID: Int, bundle: Bundle? = null) {
-        val navOptions: NavOptions = NavOptions.Builder()
+    private val mDefaultNavOptions: NavOptions
+        get() = NavOptions.Builder()
             .setEnterAnim(R.anim.slide_in_from_right)
             .setExitAnim(R.anim.slide_out_to_left)
             .setPopEnterAnim(R.anim.slide_in_from_left)
             .setPopExitAnim(R.anim.slide_out_to_right)
             .build()
 
+    private var mNavController: NavController
+
+    val mCurrentDestinationId: Int
+        get() = mNavController.currentDestination!!.id
+
+    fun navigate(actionID: Int, bundle: Bundle? = null) {
         try {
-            mNavController.navigate(actionID, bundle, navOptions)
+            mNavController.navigate(actionID, bundle, mDefaultNavOptions)
+        } catch (e: Exception) {
+            Log.d("Exception", e.message!!)
+        }
+    }
+
+    fun navigate(directions: NavDirections) {
+        try {
+            mNavController.navigate(directions, mDefaultNavOptions)
         } catch (e: Exception) {
             Log.d("Exception", e.message!!)
         }
     }
 
     fun navigateWithAnim(
-        @IdRes actionID: Int,
-        @AnimRes enterAnim: Int,
-        @AnimRes exitAnim: Int,
-        @AnimRes popEnterAnim: Int = enterAnim,
-        @AnimRes popExitAnim: Int = exitAnim,
+        actionID: Int,
+        enterAnim: Int,
+        exitAnim: Int,
+        popEnterAnim: Int = enterAnim,
+        popExitAnim: Int = exitAnim,
         bundle: Bundle? = null,
         singleTop: Boolean = false
     ) {
@@ -70,6 +80,14 @@ class NavigationManager {
             Log.d("Exception", e.message!!)
         }
     }
+
+//    fun navigateWithTransition(directions: NavDirections, extras: FragmentNavigator.Extras) {
+//        try {
+//            mNavController.navigate(directions, null, null, extras)
+//        } catch (e: Exception) {
+//            Log.d("Exception", e.message!!)
+//        }
+//    }
 
     fun onNavigationChangeListener(listener: (destination: NavDestination) -> Unit) {
         mNavController.addOnDestinationChangedListener { controller, _, _ ->

@@ -9,6 +9,10 @@
             name="albumattributes"
             type="com.arshak.core.data.local.model.AlbumUIModel" />
 
+        <variable
+            name="onalbumclickedlistener"
+            type="com.arshak.freeiptv.screens.home.widget.OnAlbumDetailsClickListener" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,7 +20,9 @@
         android:layout_height="wrap_content"
         android:background="@android:color/white"
         android:clickable="true"
-        android:foreground="?android:selectableItemBackground">
+        android:focusable="true"
+        android:foreground="?android:selectableItemBackground"
+        android:onClick="@{() ->onalbumclickedlistener.onAlbumDetailsClicked(albumattributes)}">
 
         <ImageView
             android:id="@+id/albumCoverImageView"

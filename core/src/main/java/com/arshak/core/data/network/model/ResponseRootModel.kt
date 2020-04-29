@@ -11,7 +11,7 @@ import com.google.gson.annotations.SerializedName
 @Keep
 open class ResponseRootModel<T>(
     @SerializedName("data")
-    val data: List<ResourceModel<T>> = emptyList(),
+    open val data: List<ResourceModel<T>> = emptyList(),
     @SerializedName("href")
     val href: String = "",
     @SerializedName("meta")

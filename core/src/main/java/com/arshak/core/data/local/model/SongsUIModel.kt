@@ -1,9 +1,12 @@
 package com.arshak.core.data.local.model
 
 import androidx.annotation.Keep
+import androidx.databinding.BaseObservable
 import com.arshak.core.data.network.model.*
+import kotlinx.android.parcel.Parcelize
 
 @Keep
+@Parcelize
 class SongsUIModel(
     override val id: String,
     val previews: List<PreviewModel>?,
@@ -19,7 +22,7 @@ class SongsUIModel(
     val hasLyrics: Boolean,
     val albumName: String,
     val playParams: PlayParamsModel,
-    val trackNumber: Int,
+    val trackNumber: String,
     val composerName: String?
 ) : BaseUIModel(id) {
     companion object {
@@ -39,7 +42,7 @@ class SongsUIModel(
                 hasLyrics = resourceModel.attributes.hasLyrics,
                 albumName = resourceModel.attributes.albumName,
                 playParams = resourceModel.attributes.playParams,
-                trackNumber = resourceModel.attributes.trackNumber,
+                trackNumber = resourceModel.attributes.trackNumber.toString(),
                 composerName = resourceModel.attributes.composerName
             )
     }

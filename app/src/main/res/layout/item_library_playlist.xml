@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
             name="playlistattribute"
-            type="com.arshak.core.data.network.model.LibraryPlaylistAttributesModel" />
+            type="com.arshak.core.data.local.model.LibraryPlaylistUIModel" />
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:paddingLeft="@dimen/padding_standard"
         android:paddingTop="@dimen/padding_small"
@@ -42,6 +44,5 @@
             app:layout_constraintTop_toTopOf="@id/playlistImageView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </layout>
 

@@ -33,6 +33,8 @@
     <string name="downloaded_tracks">Downloaded Tracks</string>
     <string name="tracks_on_my_device">Tracks on my device</string>
     <string name="recently_played">You recently listened to</string>
-
     <string name="stations">Stations</string>
+
+    <!-- Album Details Fragment -->
+    <string name="add">Add</string>
 </resources>

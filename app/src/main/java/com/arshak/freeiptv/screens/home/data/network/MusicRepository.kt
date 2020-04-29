@@ -1,5 +1,6 @@
 package com.arshak.freeiptv.screens.home.data.network
 
+import com.arshak.core.data.local.cache.TemporaryData
 import com.arshak.core.data.repository.BaseRepository
 import com.arshak.freeiptv.screens.authentication.data.repository.MusicApi
 
@@ -49,6 +50,19 @@ class MusicRepository(private val musicApi: MusicApi) : BaseRepository() {
         include: List<String>? = null
     ) =
         musicApi.getLibraryArtistsDetails(id, relationship, include)
+
+    suspend fun getAlbumDetails(
+        id: String,
+        storefront: String,
+        include: List<String>? = null
+    ) =
+        musicApi.getLibraryArtistsDetails(id, storefront, include)
+
+    suspend fun getAlbumDetailsRelationship(
+        id: String,
+        relationship: String,
+        storefront: String = TemporaryData.storeFront
+    ) = musicApi.getAlbumWithRelationship(id, relationship, storefront)
 
 
 }

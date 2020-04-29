@@ -23,4 +23,7 @@ class MyMusicViewModel(context: Application, private val musicRepository: MusicR
     fun getLibraryArtistDetails(id: String) =
         executeBackendCall { musicRepository.getLibraryArtistDetails(id, "albums") }
 
+    fun getAlbumDetailsRelationship(id: String, relationship: String = "") =
+        executeBackendCall { musicRepository.getAlbumDetailsRelationship(id, relationship) }
+
 }

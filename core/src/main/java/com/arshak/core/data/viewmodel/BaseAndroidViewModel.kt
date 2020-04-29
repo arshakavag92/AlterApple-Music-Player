@@ -32,7 +32,6 @@ open class BaseAndroidViewModel(val context: Application) : AndroidViewModel(con
             try {
                 val result: Output<T> = safeApiResult(call)
                 emit(result)
-
             } catch (e: Exception) {
                 emit(Output.Error(IOException(context.getString(R.string.message_error_network))))
             }
@@ -42,10 +41,10 @@ open class BaseAndroidViewModel(val context: Application) : AndroidViewModel(con
         val response = call.invoke()
         if (response.isSuccessful) {
             return when (val responseBody = response.body()) {
-                is ResponseRootModel<*> -> when {
-                    responseBody.error.isNullOrEmpty() -> Output.Success(responseBody) as Output<T>
-                    else -> Output.Error(IOException(responseBody.error.toString()))
-                }
+//                is ResponseRootModel<*> -> when {
+//                    responseBody.error.isNullOrEmpty() -> Output.Success(responseBody) as Output<T>
+//                    else -> Output.Error(IOException(responseBody.error.toString()))
+//                }
                 is T -> Output.Success(responseBody)
                 else -> Output.Error(IOException(context.getString(R.string.message_error_network)))
             }

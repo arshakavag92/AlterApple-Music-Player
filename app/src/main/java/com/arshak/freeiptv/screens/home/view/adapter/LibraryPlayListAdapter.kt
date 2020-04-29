@@ -7,15 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import com.arshak.core.data.local.model.LibraryPlaylistUIModel
 import com.arshak.core.data.network.model.LibraryPlaylistAttributesModel
+import com.arshak.core.view.widget.recyclerview.BaseUIModelListAdapter
 import com.arshak.freeiptv.R
 import com.arshak.freeiptv.databinding.ItemLibraryPlaylistBinding
 import com.arshak.freeiptv.databinding.ItemSearchResultAlbumBinding
 
 class LibraryPlayListAdapter :
-    ListAdapter<LibraryPlaylistAttributesModel, ItemViewholder>(
-        LibraryPlaylistDiffCallback()
-    ) {
+    BaseUIModelListAdapter<LibraryPlaylistUIModel, ItemViewholder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewholder =
         ItemViewholder.from(parent)
@@ -28,7 +28,7 @@ class LibraryPlayListAdapter :
 class ItemViewholder(val binding: ItemLibraryPlaylistBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: LibraryPlaylistAttributesModel) = with(binding) {
+    fun bind(item: LibraryPlaylistUIModel) = with(binding) {
         binding.playlistattribute = item
     }
 
@@ -42,21 +42,5 @@ class ItemViewholder(val binding: ItemLibraryPlaylistBinding) :
             )
             return ItemViewholder(binding)
         }
-    }
-}
-
-class LibraryPlaylistDiffCallback : DiffUtil.ItemCallback<LibraryPlaylistAttributesModel>() {
-    override fun areItemsTheSame(
-        oldItem: LibraryPlaylistAttributesModel,
-        newItem: LibraryPlaylistAttributesModel
-    ): Boolean {
-        return oldItem.artwork?.url == newItem.artwork?.url
-    }
-
-    override fun areContentsTheSame(
-        oldItem: LibraryPlaylistAttributesModel,
-        newItem: LibraryPlaylistAttributesModel
-    ): Boolean {
-        return oldItem == newItem
     }
 }

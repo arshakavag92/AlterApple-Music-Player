@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="alnumuimodel"
+            type="com.arshak.core.data.local.model.AlbumUIModel" />
+
+<!--        <import type="androidx.databinding.ObservableField" />-->
+
+        <!--        <variable-->
+        <!--            name="albumtrackslength"-->
+        <!--            type="ObservableField&lt;String>" />-->
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/padding_small"
+            android:paddingVertical="@dimen/padding_small">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar_main_details"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/albumCoverImageView"
+                style="@style/MusicPlayer.Details.Album.Cover"
+                android:layout_marginTop="@dimen/padding_standard"
+                android:src="@color/black"
+                app:artwork="@{alnumuimodel.artwork}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"
+                app:layout_constraintWidth_percent="0.5" />
+
+            <TextView
+                android:id="@+id/albumNameTextView"
+                style="@style/MusicPlayer.Details.Album.Name"
+                android:layout_marginLeft="@dimen/padding_small"
+                android:text="@{alnumuimodel.name}"
+                app:layout_constraintLeft_toRightOf="@id/albumCoverImageView"
+                app:layout_constraintTop_toTopOf="@id/albumCoverImageView"
+                tools:text="What the dead men say" />
+
+            <TextView
+                android:id="@+id/artistNameTextView"
+                style="@style/MusicPlayer.Details.Album.ArtistName"
+                android:layout_marginLeft="@dimen/padding_small"
+                android:text="@{alnumuimodel.artistName}"
+                app:layout_constraintLeft_toRightOf="@id/albumCoverImageView"
+                app:layout_constraintTop_toBottomOf="@id/albumNameTextView"
+                tools:text="Trivium" />
+
+            <TextView
+                android:id="@+id/releaseDateTextView"
+                style="@style/MusicPlayer.Details.Album.ReleaseDate"
+                android:layout_marginLeft="@dimen/padding_small"
+                android:text="@{alnumuimodel.releaseDate}"
+                app:layout_constraintLeft_toRightOf="@id/albumCoverImageView"
+                app:layout_constraintTop_toBottomOf="@id/artistNameTextView"
+                tools:text="Pre-Release" />
+
+            <Button
+                android:id="@+id/addAlbumButton"
+                style="@style/MusicPlayer.Button"
+                android:layout_height="@dimen/size_more_settings_button"
+                android:layout_marginLeft="@dimen/padding_small"
+                android:drawableLeft="@drawable/ic_add_white"
+                android:text="@string/add"
+                android:textAllCaps="true"
+                app:layout_constraintBottom_toBottomOf="@id/albumCoverImageView"
+                app:layout_constraintLeft_toRightOf="@id/albumCoverImageView" />
+
+            <ImageView
+                android:id="@+id/albumSettingsButton"
+                android:layout_width="@dimen/size_more_settings_button"
+                android:layout_height="@dimen/size_more_settings_button"
+                android:layout_marginRight="@dimen/padding_standard"
+                android:src="@drawable/background_oprions_menu"
+                app:layout_constraintBottom_toBottomOf="@id/addAlbumButton"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/albumTracksRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_standard"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/albumCoverImageView" />
+
+            <LinearLayout
+                android:id="@+id/copyrightDetailsLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/albumTracksRecyclerView">
+
+                <TextView
+                    android:id="@+id/albumLengthAndCountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{alnumuimodel.trackCountAndLength}" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
+
+
+

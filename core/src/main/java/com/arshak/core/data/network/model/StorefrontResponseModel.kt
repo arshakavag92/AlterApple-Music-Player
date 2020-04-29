@@ -7,4 +7,5 @@ import androidx.annotation.Keep
  * Project Name: FreeIPTV
  */
 @Keep
-data class StorefrontResponseModel(val type: String) : ResponseRootModel<StoreFrontAttributesModel>()
+data class StorefrontResponseModel(val type: String) :
+    ResponseRootModel<StoreFrontAttributesModel>()

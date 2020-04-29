@@ -10,6 +10,7 @@
         <variable
             name="viewmodel"
             type="com.arshak.freeiptv.screens.home.viewmodel.MyMusicViewModel" />
+        
     </data>
 
     <androidx.core.widget.NestedScrollView

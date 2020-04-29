@@ -87,4 +87,11 @@ interface MusicApi {
         @Query("include") include: List<String>? = null,
         @Query("l") localisation: String? = null
     ): Response<AlbumResponseModel>
+
+    @GET(NetworkConstants.PATH_ALBUM_RELATIONSHIP)
+    suspend fun getAlbumWithRelationship(
+        @Path("id") id: String,
+        @Path("relationship") relationship: String,
+        @Path("storefront") storefront: String
+    ): Response<AlbumDetailsResponseModel>
 }

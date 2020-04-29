@@ -19,4 +19,9 @@ object NetworkConstants {
     const val PATH_LIBRARY_ARTISTS = "me/library/artists"
     const val PATH_LIBRARY_SONGS = "me/library/songs"
     const val PATH_LIBRARY_ARTIST_DETAILS = "me/library/artists/{id}/{relationship}"
+
+    // Global Data
+    const val PATH_ALBUM = "{storefront}/albums/{id}"
+    const val PATH_ALBUM_RELATIONSHIP = "catalog/{storefront}/albums/{id}/{relationship}"
+    const val PATH_ALBUM_DETAILS = "catalog/{storefront}/albums/{id}"
 }

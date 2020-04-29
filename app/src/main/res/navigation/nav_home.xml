@@ -29,6 +29,16 @@
         android:id="@+id/to_libraryTracksFragment"
         app:destination="@id/libraryTracksFragment" />
 
+    <action
+        android:id="@+id/to_albumDetailsFragment"
+        app:destination="@id/albumDetailsFragment" />
+
+    <action
+        android:id="@+id/openAlbumDetailsFragment"
+        app:destination="@id/albumDetailsFragment">
+
+    </action>
+
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.arshak.freeiptv.screens.home.view.fragment.SearchFragment"
@@ -64,5 +74,17 @@
         android:name="com.arshak.freeiptv.screens.home.view.fragment.LibraryTracksFragment"
         android:label="LibraryTracksFragment"
         tools:layout="@layout/fragment_user_library" />
+
+    <fragment
+        android:id="@+id/albumDetailsFragment"
+        android:name="com.arshak.freeiptv.screens.home.view.fragment.AlbumDetailsFragment"
+        android:label="AlbumDetailsFragment"
+        tools:layout="@layout/fragment_album_details">
+
+        <argument
+            android:name="alumuimodel"
+            app:argType="com.arshak.core.data.local.model.AlbumUIModel" />
+
+    </fragment>
 
 </navigation>

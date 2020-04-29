@@ -95,7 +95,6 @@ object HomeBinding {
         })
     }
 
-
     @JvmStatic
     @BindingAdapter("onClearClicked")
     fun onSearchCloseListener(
@@ -153,9 +152,9 @@ object HomeBinding {
         when (data.first().type) {
             SearchItemTypeEnum.SONGS.type -> inflateSongs(
                 container,
-                DTOConverter.librarySongsUIConverter(data as List<ResourceModel<SongAttributesModel>>)!!
+                DTOConverter.songsUIConverter(data as List<ResourceModel<SongAttributesModel>>)!!
             )
-            
+
             SearchItemTypeEnum.ALBUMS.type -> inflateAlbums(
                 container,
                 DTOConverter.libraryAlbumsUIConverter(data as List<ResourceModel<AlbumAttributesModel>>)!!

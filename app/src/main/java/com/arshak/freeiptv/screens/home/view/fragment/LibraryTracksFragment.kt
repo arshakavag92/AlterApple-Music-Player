@@ -17,11 +17,11 @@ class LibraryTracksFragment : BaseLibraryDetailsFragment() {
 
     override fun loadLibraryList() = activityViewModel.librarySongs().observe(this, Observer {
         when (it) {
-            is Output.Success -> handleDetailsResult(DTOConverter.librarySongsUIConverter(it.output.data))
+            is Output.Success -> handleDetailsResult(DTOConverter.songsUIConverter(it.output.data))
             is Output.Error -> Unit
         }
     })
 
     override fun handleSearchResult(response: LibrarySearchResultsModel) =
-        handleDetailsResult(DTOConverter.librarySongsUIConverter(response.songs?.data))
+        handleDetailsResult(DTOConverter.songsUIConverter(response.songs?.data))
 }
