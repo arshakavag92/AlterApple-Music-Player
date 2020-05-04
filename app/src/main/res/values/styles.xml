@@ -233,8 +233,12 @@
 
     <style name="MusicPlayer.Details.Album.Name">
         <item name="android:textSize">@dimen/size_text_album_details_name</item>
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="layout_constraintHorizontal_weight">1</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="singleLine">false</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
         <item name="android:textStyle">bold</item>
     </style>
 
@@ -246,6 +250,16 @@
     <style name="MusicPlayer.Details.Album.ReleaseDate">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="MusicPlayer.Details.Album.TrackName">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="singleLine">false</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/size_text_track_name</item>
     </style>
 
 

@@ -3,6 +3,8 @@ package com.arshak.core.data.local.model
 import androidx.annotation.Keep
 import androidx.databinding.ObservableField
 import com.arshak.core.data.network.model.*
+import com.arshak.core.extensions.KotlinExtensions.toFormattedDate
+import com.arshak.core.extensions.KotlinExtensions.toFormattedYear
 import kotlinx.android.parcel.IgnoredOnParcel
 import kotlinx.android.parcel.Parcelize
 
@@ -31,6 +33,10 @@ data class AlbumUIModel(
 
     @IgnoredOnParcel
     var trackCountAndLength = ObservableField<String>()
+
+    @IgnoredOnParcel
+    val releaseDateFormatted: String?
+        get() = releaseDate?.toFormattedYear()
 
     companion object {
 

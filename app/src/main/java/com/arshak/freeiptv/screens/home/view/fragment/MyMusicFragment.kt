@@ -48,8 +48,7 @@ class MyMusicFragment :
     }
 
     private fun showRecentListenedItems(response: HistoryResponseModel) {
-        val albums =
-            response.data.filter { resource -> resource.type == SearchItemTypeEnum.ALBUMS.type }
+        val albums = response.data.filter { resource -> resource.type == SearchItemTypeEnum.ALBUMS.type }
         mRecentPlayedAdapter.submitList(DTOConverter.libraryAlbumsUIConverter(albums))
     }
 

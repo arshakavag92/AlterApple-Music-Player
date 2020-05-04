@@ -15,10 +15,11 @@ object NetworkConstants {
     // User Personal Data
     const val PATH_LIBRARY_SEARCH = "me/library/search"
     const val PATH_LIBRARY_ALBUMS = "me/library/albums"
+    const val PATH_LiBRARY_ALBUM_DETAILS = "$PATH_LIBRARY_ALBUMS/{id}/{relationship}"
     const val PATH_LIBRARY_PLAYLISTS = "me/library/playlists"
     const val PATH_LIBRARY_ARTISTS = "me/library/artists"
     const val PATH_LIBRARY_SONGS = "me/library/songs"
-    const val PATH_LIBRARY_ARTIST_DETAILS = "me/library/artists/{id}/{relationship}"
+    const val PATH_LIBRARY_ARTIST_DETAILS = "$PATH_LIBRARY_ARTISTS/{id}/{relationship}"
 
     // Global Data
     const val PATH_ALBUM = "{storefront}/albums/{id}"

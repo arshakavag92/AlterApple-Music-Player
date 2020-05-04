@@ -35,9 +35,12 @@
 
     <action
         android:id="@+id/openAlbumDetailsFragment"
-        app:destination="@id/albumDetailsFragment">
+        app:destination="@id/albumDetailsFragment" />
 
-    </action>
+    <action
+        android:id="@+id/openLibraryAlbumDetailsFragment"
+        app:destination="@id/libraryAlbumDetailsFragment" />
+
 
     <fragment
         android:id="@+id/searchFragment"
@@ -78,6 +81,18 @@
     <fragment
         android:id="@+id/albumDetailsFragment"
         android:name="com.arshak.freeiptv.screens.home.view.fragment.AlbumDetailsFragment"
+        android:label="AlbumDetailsFragment"
+        tools:layout="@layout/fragment_album_details">
+
+        <argument
+            android:name="alumuimodel"
+            app:argType="com.arshak.core.data.local.model.AlbumUIModel" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/libraryAlbumDetailsFragment"
+        android:name="com.arshak.freeiptv.screens.home.view.fragment.LibraryAlbumDetailsFragment"
         android:label="AlbumDetailsFragment"
         tools:layout="@layout/fragment_album_details">
 

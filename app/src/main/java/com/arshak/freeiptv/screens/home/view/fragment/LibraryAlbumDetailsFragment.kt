@@ -12,25 +12,29 @@ import com.arshak.core.extensions.KotlinExtensions.toMinutes
 import com.arshak.core.view.screens.fragment.BaseFragment
 import com.arshak.freeiptv.R
 import com.arshak.freeiptv.databinding.FragmentAlbumDetailsBinding
+import com.arshak.freeiptv.databinding.FragmentLibraryAlbumDetailsBinding
 import com.arshak.freeiptv.screens.home.view.adapter.AlbumSongsAdapter
 import com.arshak.freeiptv.screens.home.viewmodel.MyMusicViewModel
 import com.arshak.freeiptv.utils.DTOConverter
 import kotlinx.android.synthetic.main.toolbar_main_details.view.*
 
-class AlbumDetailsFragment : BaseFragment<FragmentAlbumDetailsBinding, MyMusicViewModel>(
-    R.layout.fragment_album_details,
-    MyMusicViewModel::class
-) {
+class LibraryAlbumDetailsFragment :
+    BaseFragment<FragmentLibraryAlbumDetailsBinding, MyMusicViewModel>(
+        R.layout.fragment_library_album_details,
+        MyMusicViewModel::class
+    ) {
+
     lateinit var mAlbumDetailsModel: AlbumUIModel
 
     val arguments by navArgs<AlbumDetailsFragmentArgs>()
+
     val albumSongsAdapter = AlbumSongsAdapter()
 
     override fun getSafeArgumentsFromBundle() {
         mAlbumDetailsModel = arguments.alumuimodel
     }
 
-    override fun loadData() = loadAlbumTracks()
+    override fun loadData() = loadLibraryAlbumDetails()
 
     override fun setupView() = with(fragmentBinding) {
         toolbar.backButton.setOnClickListener { mNavigationManager.goBack() }
@@ -41,23 +45,21 @@ class AlbumDetailsFragment : BaseFragment<FragmentAlbumDetailsBinding, MyMusicVi
         alnumuimodel = mAlbumDetailsModel
     }
 
-    private fun loadAlbumTracks() =
-        activityViewModel.getAlbumDetailsRelationship(
-            mAlbumDetailsModel.id
-        ).observe(this@AlbumDetailsFragment, Observer {
-            when (it) {
-                is Output.Success -> {
-                    val tracks = it.output.data.first().relationships?.tracks!!
-                    setupAlbumDetails(tracks)
-                    setupAlbumTracks(tracks)
+    protected fun loadLibraryAlbumDetails() =
+        activityViewModel.getLibraryAlbumDetails(
+            mAlbumDetailsModel.id,
+            AlbumRelationshipEnum.TRACKS.value
+        ).observe(viewLifecycleOwner,
+            Observer {
+                when (it) {
+                    is Output.Success -> {
+                    }
+                    is Output.Error -> Unit
                 }
-                is Output.Error -> Unit
-            }
-        })
+            })
 
     private fun setupAlbumDetails(tracks: SongsResponseModel) {
-        val albumLength =
-            tracks.data.map { it.attributes!!.durationInMillis }.sum().toMinutes()
+        val albumLength = tracks.data.map { it.attributes!!.durationInMillis }.sum().toMinutes()
         mAlbumDetailsModel.trackCountAndLength.set(
             "${tracks.data.size} songs, $albumLength minutes" + "\n" +
                     "Release Date: ${mAlbumDetailsModel.releaseDate?.toFormattedDate()}" + "\n" +

@@ -11,10 +11,13 @@ import com.arshak.freeiptv.screens.authentication.data.repository.MusicApi
 class MusicRepository(private val musicApi: MusicApi) : BaseRepository() {
 
     suspend fun history(limit: Int? = null, offset: Int? = null) =
-        musicApi.history(localisation = "", limit = limit, offset = offset)
+        musicApi.history(limit = limit, offset = offset)
 
     suspend fun libraryAlbums(limit: Int? = null, offset: String? = null) =
-        musicApi.libraryAlbums(localisation = "", limit = limit, offset = offset)
+        musicApi.libraryAlbums(limit = limit, offset = offset)
+
+    suspend fun libraryAlbumDetails(id: String, relationship: String) =
+        musicApi.libraryAlbumById(id, relationship)
 
     suspend fun librarySearch(
         term: String,

@@ -55,7 +55,7 @@
             android:id="@+id/albumYearTextView"
             style="@style/MusicPlayer.Home.Search.Result.Album.Year"
             android:layout_marginLeft="@dimen/padding_small"
-            android:text="@{albumattributes.releaseDate}"
+            android:text="@{albumattributes.releaseDateFormatted}"
             app:layout_constraintLeft_toRightOf="@id/albumCoverImageView"
             app:layout_constraintTop_toBottomOf="@id/albumArtistTextView" />
 

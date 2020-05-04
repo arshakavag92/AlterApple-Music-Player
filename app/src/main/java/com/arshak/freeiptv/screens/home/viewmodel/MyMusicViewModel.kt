@@ -11,6 +11,9 @@ class MyMusicViewModel(context: Application, private val musicRepository: MusicR
 
     fun libraryAlbums() = executeBackendCall { musicRepository.libraryAlbums() }
 
+    fun libraryAlbumById(libraryId: String, relationship: String) =
+        executeBackendCall { musicRepository.libraryAlbumDetails(libraryId, relationship) }
+
     fun searchInLibrary(term: String, types: List<String>) =
         executeBackendCall { musicRepository.librarySearch(term, types = types) }
 
@@ -19,6 +22,9 @@ class MyMusicViewModel(context: Application, private val musicRepository: MusicR
     fun libraryArtists() = executeBackendCall { musicRepository.libraryArtist() }
 
     fun librarySongs() = executeBackendCall { musicRepository.librarySongs() }
+
+    fun getLibraryAlbumDetails(id: String, relationship: String) =
+        executeBackendCall { musicRepository.libraryAlbumDetails(id, relationship) }
 
     fun getLibraryArtistDetails(id: String) =
         executeBackendCall { musicRepository.getLibraryArtistDetails(id, "albums") }

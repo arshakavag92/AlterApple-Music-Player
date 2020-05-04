@@ -2,7 +2,9 @@ package com.arshak.core.data.local.model
 
 import com.arshak.core.data.network.model.*
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 class LibraryPlaylistUIModel(
     override val id: String?,
     val artwork: ArtworkModel?,

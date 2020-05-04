@@ -3,6 +3,8 @@ package com.arshak.core.data.local.model
 import androidx.annotation.Keep
 import androidx.databinding.BaseObservable
 import com.arshak.core.data.network.model.*
+import com.arshak.core.extensions.KotlinExtensions.toFormattedYear
+import kotlinx.android.parcel.IgnoredOnParcel
 import kotlinx.android.parcel.Parcelize
 
 @Keep
@@ -25,6 +27,11 @@ class SongsUIModel(
     val trackNumber: String,
     val composerName: String?
 ) : BaseUIModel(id) {
+
+    @IgnoredOnParcel
+    val releaseDateFormatted: String?
+        get() = releaseDate?.toFormattedYear()
+
     companion object {
         fun from(resourceModel: ResourceModel<SongAttributesModel>) =
             SongsUIModel(

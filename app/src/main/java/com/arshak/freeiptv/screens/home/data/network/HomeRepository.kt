@@ -16,7 +16,6 @@ class HomeRepository(private val musicApi: MusicApi) : BaseRepository() {
         storeFront = TemporaryData.storeFront,
         term = searchRequestModel.term,
         limit = searchRequestModel.limit,
-        localisation = searchRequestModel.localisation,
         offset = searchRequestModel.offset,
         types = searchRequestModel.types
     )
