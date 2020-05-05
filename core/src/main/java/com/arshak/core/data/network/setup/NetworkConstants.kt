@@ -11,6 +11,8 @@ object NetworkConstants {
     const val PATH_SEARCH = "catalog/{storefront}/search"
     const val PATH_SEARCH_HINT = "catalog/{storefront}/search/hints"
     const val PATH_HISTORY = "me/recent/played"
+    const val PATH_CATALOG_ARTIST = "catalog/{storefront}/artists/{id}"
+    const val PATH_CATALOG_ARTIST_RELATIONSHIP = "c$PATH_CATALOG_ARTIST{relationship}"
 
     // User Personal Data
     const val PATH_LIBRARY_SEARCH = "me/library/search"

@@ -49,7 +49,7 @@ interface MusicApi {
     suspend fun libraryAlbumById(
         @Path("id") id: String,
         @Path("relationship") relationship: String
-    ): Response<LibraryAlbumDetailsResponseModel>
+    ): Response<SongsResponseModel>
 
     @GET(NetworkConstants.PATH_LIBRARY_SEARCH)
     suspend fun librarySearch(
@@ -93,4 +93,11 @@ interface MusicApi {
         @Path("relationship") relationship: String,
         @Path("storefront") storefront: String
     ): Response<AlbumDetailsResponseModel>
+
+    @GET(NetworkConstants.PATH_CATALOG_ARTIST_RELATIONSHIP)
+    suspend fun getArtistWithRelationship(
+        @Path("id") id: String,
+        @Path("relationship") relationship: String,
+        @Path("storefront") storefront: String
+    ): Response<ArtistResponseModel>
 }

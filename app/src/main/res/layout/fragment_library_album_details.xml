@@ -65,26 +65,6 @@
                 app:layout_constraintTop_toBottomOf="@id/artistNameTextView"
                 tools:text="Pre-Release" />
 
-            <Button
-                android:id="@+id/addAlbumButton"
-                style="@style/MusicPlayer.Button"
-                android:layout_height="@dimen/size_more_settings_button"
-                android:layout_marginLeft="@dimen/padding_small"
-                android:drawableLeft="@drawable/ic_add_white"
-                android:text="@string/add"
-                android:textAllCaps="true"
-                app:layout_constraintBottom_toBottomOf="@id/albumCoverImageView"
-                app:layout_constraintLeft_toRightOf="@id/albumCoverImageView" />
-
-            <ImageView
-                android:id="@+id/albumSettingsButton"
-                android:layout_width="@dimen/size_more_settings_button"
-                android:layout_height="@dimen/size_more_settings_button"
-                android:layout_marginRight="@dimen/padding_standard"
-                android:src="@drawable/background_oprions_menu"
-                app:layout_constraintBottom_toBottomOf="@id/addAlbumButton"
-                app:layout_constraintRight_toRightOf="parent" />
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/albumTracksRecyclerView"
                 android:layout_width="match_parent"

@@ -67,5 +67,10 @@ class MusicRepository(private val musicApi: MusicApi) : BaseRepository() {
         storefront: String = TemporaryData.storeFront
     ) = musicApi.getAlbumWithRelationship(id, relationship, storefront)
 
+    suspend fun getArtistWithRelationship(
+        id: String,
+        relationship: String,
+        storefront: String = TemporaryData.storeFront
+    ) = musicApi.getArtistWithRelationship(id, relationship, storefront)
 
 }

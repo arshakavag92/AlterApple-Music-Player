@@ -14,6 +14,8 @@ import com.arshak.freeiptv.R
 import com.arshak.freeiptv.databinding.FragmentAlbumDetailsBinding
 import com.arshak.freeiptv.databinding.FragmentLibraryAlbumDetailsBinding
 import com.arshak.freeiptv.screens.home.view.adapter.AlbumSongsAdapter
+import com.arshak.freeiptv.screens.home.view.adapter.LibraryAlbumSongsAdapter
+import com.arshak.freeiptv.screens.home.view.adapter.LibrarySongsAdapter
 import com.arshak.freeiptv.screens.home.viewmodel.MyMusicViewModel
 import com.arshak.freeiptv.utils.DTOConverter
 import kotlinx.android.synthetic.main.toolbar_main_details.view.*
@@ -25,10 +27,8 @@ class LibraryAlbumDetailsFragment :
     ) {
 
     lateinit var mAlbumDetailsModel: AlbumUIModel
-
-    val arguments by navArgs<AlbumDetailsFragmentArgs>()
-
-    val albumSongsAdapter = AlbumSongsAdapter()
+    private val arguments by navArgs<AlbumDetailsFragmentArgs>()
+    private val mLibrarySongsAdapter = LibraryAlbumSongsAdapter()
 
     override fun getSafeArgumentsFromBundle() {
         mAlbumDetailsModel = arguments.alumuimodel
@@ -40,35 +40,25 @@ class LibraryAlbumDetailsFragment :
         toolbar.backButton.setOnClickListener { mNavigationManager.goBack() }
         albumTracksRecyclerView.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = albumSongsAdapter
+            adapter = mLibrarySongsAdapter
         }
         alnumuimodel = mAlbumDetailsModel
     }
 
-    protected fun loadLibraryAlbumDetails() =
+    private fun loadLibraryAlbumDetails() =
         activityViewModel.getLibraryAlbumDetails(
             mAlbumDetailsModel.id,
             AlbumRelationshipEnum.TRACKS.value
         ).observe(viewLifecycleOwner,
             Observer {
                 when (it) {
-                    is Output.Success -> {
-                    }
+                    is Output.Success -> setupAlbumTracks(it.output)
                     is Output.Error -> Unit
                 }
             })
 
-    private fun setupAlbumDetails(tracks: SongsResponseModel) {
-        val albumLength = tracks.data.map { it.attributes!!.durationInMillis }.sum().toMinutes()
-        mAlbumDetailsModel.trackCountAndLength.set(
-            "${tracks.data.size} songs, $albumLength minutes" + "\n" +
-                    "Release Date: ${mAlbumDetailsModel.releaseDate?.toFormattedDate()}" + "\n" +
-                    "Copyright: ${mAlbumDetailsModel.copyright}."
-        )
-    }
-
-    private fun setupAlbumTracks(songsResponseModel: SongsResponseModel) {
-        val songs = DTOConverter.songsUIConverter(songsResponseModel.data)
-        albumSongsAdapter.submitList(songs)
+    private fun setupAlbumTracks(librarySongsResponseModel: SongsResponseModel) {
+        val songs = DTOConverter.songsUIConverter(librarySongsResponseModel.data)
+        mLibrarySongsAdapter.submitList(songs)
     }
 }

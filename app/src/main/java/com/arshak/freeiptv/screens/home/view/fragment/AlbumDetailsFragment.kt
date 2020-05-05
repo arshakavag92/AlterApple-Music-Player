@@ -4,7 +4,8 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.arshak.core.data.local.model.AlbumUIModel
-import com.arshak.core.data.network.model.AlbumRelationshipEnum
+import com.arshak.core.data.network.model.ArtistAttributesModel
+import com.arshak.core.data.network.model.ArtistResponseModel
 import com.arshak.core.data.network.model.Output
 import com.arshak.core.data.network.model.SongsResponseModel
 import com.arshak.core.extensions.KotlinExtensions.toFormattedDate
@@ -47,10 +48,21 @@ class AlbumDetailsFragment : BaseFragment<FragmentAlbumDetailsBinding, MyMusicVi
         ).observe(this@AlbumDetailsFragment, Observer {
             when (it) {
                 is Output.Success -> {
-                    val tracks = it.output.data.first().relationships?.tracks!!
+                    val data = it.output.data.first()
+                    val tracks = data.relationships?.tracks!!
+                    val artist = data.relationships?.artists!!
+                    loadArtistRelationships(artist.data.first().id)
                     setupAlbumDetails(tracks)
                     setupAlbumTracks(tracks)
                 }
+                is Output.Error -> Unit
+            }
+        })
+
+    private fun loadArtistRelationships(id: String) =
+        activityViewModel.getArtistWithRelationship(id).observe(viewLifecycleOwner, Observer {
+            when (it) {
+                is Output.Success -> Unit
                 is Output.Error -> Unit
             }
         })

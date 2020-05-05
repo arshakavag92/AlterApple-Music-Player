@@ -20,7 +20,9 @@ class LibraryAlbumsFragment : BaseLibraryDetailsFragment() {
         onAlbumDetailsClickListener = object : OnAlbumDetailsClickListener {
             override fun onAlbumDetailsClicked(albumUIModel: AlbumUIModel) {
                 val direction =
-                    LibraryAlbumDetailsFragmentDirections.openLibraryAlbumDetailsFragment(albumUIModel)
+                    LibraryAlbumDetailsFragmentDirections.openLibraryAlbumDetailsFragment(
+                        albumUIModel
+                    )
                 mNavigationManager.navigate(direction)
             }
         }
