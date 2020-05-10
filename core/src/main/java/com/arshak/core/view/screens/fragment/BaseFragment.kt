@@ -9,6 +9,7 @@ import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavArgs
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -34,7 +35,7 @@ import kotlin.reflect.KClass
  * @param VM for lazy implementation of ViewModel
  * */
 
-abstract class BaseFragment<V : ViewDataBinding, out VM : BaseAndroidViewModel>(
+abstract class BaseFragment<V : ViewDataBinding, VM : BaseAndroidViewModel>(
     @LayoutRes val layoutResId: Int,
     viewModelClass: KClass<VM>
 ) : BaseAppCompatFragment<VM>(layoutResId, viewModelClass) {

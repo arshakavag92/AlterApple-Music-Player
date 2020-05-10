@@ -81,14 +81,6 @@ class NavigationManager {
         }
     }
 
-//    fun navigateWithTransition(directions: NavDirections, extras: FragmentNavigator.Extras) {
-//        try {
-//            mNavController.navigate(directions, null, null, extras)
-//        } catch (e: Exception) {
-//            Log.d("Exception", e.message!!)
-//        }
-//    }
-
     fun onNavigationChangeListener(listener: (destination: NavDestination) -> Unit) {
         mNavController.addOnDestinationChangedListener { controller, _, _ ->
             listener(controller.currentDestination!!)

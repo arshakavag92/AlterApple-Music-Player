@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 @Keep
 data class ArtistRelationshipsModel(
     @SerializedName("albums")
-    val albums: RelationshipModel<AlbumResponseModel>,
+    val albums: RelationshipModel<AlbumAttributesModel>,
     @SerializedName("genres")
     val genres: RelationshipModel<GenreAttributesModel>,
     @SerializedName("playlists")

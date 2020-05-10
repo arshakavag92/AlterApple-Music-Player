@@ -3,16 +3,14 @@ package com.arshak.freeiptv.screens.home.view.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.arshak.core.data.local.model.SongsUIModel
-import com.arshak.core.view.widget.recyclerview.UiModelDiffUtil
+import com.arshak.core.view.widget.recyclerview.BaseUIModelListAdapter
 import com.arshak.freeiptv.R
 import com.arshak.freeiptv.databinding.ItemAlbumTracksBinding
-import com.arshak.freeiptv.databinding.ItemSearchResultSongBinding
 
 class AlbumSongsAdapter :
-    ListAdapter<SongsUIModel, AlbumSongsAdapter.ItemViewHolder>(UiModelDiffUtil()) {
+    BaseUIModelListAdapter<SongsUIModel, AlbumSongsAdapter.ItemViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder =
         ItemViewHolder.from(parent)
 

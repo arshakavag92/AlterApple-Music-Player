@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="albumuimodel"
+            type="com.arshak.core.data.local.model.AlbumUIModel" />
+
+        <variable
+            name="onalbumclickedlistener"
+            type="com.arshak.freeiptv.screens.home.widget.OnAlbumDetailsClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/MusicPlayer.Selectable"
+        android:layout_width="@dimen/size_more_album_details_cover"
+        android:layout_height="wrap_content"
+        android:onClick="@{() ->onalbumclickedlistener.onAlbumDetailsClicked(albumuimodel)}"
+        android:paddingBottom="@dimen/padding_small">
+
+        <ImageView
+            android:id="@+id/albumCoverImageView"
+            style="@style/MusicPlayer.Details.Album.More.Cover"
+            app:artwork="@{albumuimodel.artwork}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/albumNameTextView"
+            style="@style/MusicPlayer.Details.Album.More.AlbumName"
+            android:text="@{albumuimodel.name}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/albumCoverImageView"
+            tools:text="Acendancy" />
+
+        <TextView
+            android:id="@+id/artistNameTextView"
+            style="@style/MusicPlayer.Details.Album.More.ArtistName"
+            android:text="@{albumuimodel.artistName}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/albumNameTextView"
+            tools:text="Trivium" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

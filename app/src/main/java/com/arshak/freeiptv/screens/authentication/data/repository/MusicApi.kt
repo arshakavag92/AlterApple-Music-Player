@@ -99,5 +99,5 @@ interface MusicApi {
         @Path("id") id: String,
         @Path("relationship") relationship: String,
         @Path("storefront") storefront: String
-    ): Response<ArtistResponseModel>
+    ): Response<AlbumResponseModel>
 }

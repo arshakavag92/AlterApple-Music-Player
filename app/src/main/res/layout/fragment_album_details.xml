@@ -5,9 +5,19 @@
 
     <data>
 
+        <import type="com.arshak.freeiptv.R" />
+
         <variable
             name="alnumuimodel"
             type="com.arshak.core.data.local.model.AlbumUIModel" />
+
+        <variable
+            name="tracksadapter"
+            type="com.arshak.freeiptv.screens.home.view.adapter.AlbumSongsAdapter" />
+
+        <variable
+            name="morealbumsadapter"
+            type="com.arshak.freeiptv.screens.home.view.adapter.MoreAlbumsAdapter" />
 
     </data>
 
@@ -90,9 +100,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_standard"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/albumCoverImageView" />
+                app:layout_constraintTop_toBottomOf="@id/albumCoverImageView"
+                app:listAdapter="@{tracksadapter}" />
 
             <LinearLayout
                 android:id="@+id/copyrightDetailsLinearLayout"
@@ -111,6 +123,29 @@
                     android:text="@{alnumuimodel.trackCountAndLength}" />
 
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/morebYArtistTextView"
+                style="@style/MusicPlayer.Details.Album.SimilarCategories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_standard"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/copyrightDetailsLinearLayout" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/similarAlbumsRecyclerView"
+                listAdapter="@{morealbumsadapter}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_standard"
+                app:divider="@{R.dimen.size_separator_albums_list_horizontal}"
+                app:isHorizontal="@{true}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/morebYArtistTextView" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </layout>

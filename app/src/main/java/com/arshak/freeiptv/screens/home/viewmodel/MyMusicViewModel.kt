@@ -1,6 +1,7 @@
 package com.arshak.freeiptv.screens.home.viewmodel
 
 import android.app.Application
+import com.arshak.core.data.network.model.SearchItemTypeEnum
 import com.arshak.core.data.viewmodel.BaseAndroidViewModel
 import com.arshak.freeiptv.screens.home.data.network.MusicRepository
 
@@ -32,7 +33,14 @@ class MyMusicViewModel(context: Application, private val musicRepository: MusicR
     fun getAlbumDetailsRelationship(id: String, relationship: String = "") =
         executeBackendCall { musicRepository.getAlbumDetailsRelationship(id, relationship) }
 
-    fun getArtistWithRelationship(id: String, relationship: String = "") =
-        executeBackendCall { musicRepository.getArtistWithRelationship(id, relationship) }
-
+    fun getArtistWithRelationship(
+        id: String,
+        relationship: String = SearchItemTypeEnum.ALBUMS.type
+    ) =
+        executeBackendCall {
+            musicRepository.getArtistWithRelationship(
+                id = id,
+                relationship = relationship
+            )
+        }
 }

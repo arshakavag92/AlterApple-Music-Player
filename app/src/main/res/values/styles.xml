@@ -16,6 +16,12 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="MusicPlayer.Selectable">
+        <item name="android:foreground">?selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
     <style name="MusicPlayer.Button">
         <item name="android:buttonStyle">@style/Widget.AppCompat.Button.Borderless</item>
         <item name="android:layout_width">wrap_content</item>
@@ -261,5 +267,37 @@
         <item name="android:textSize">@dimen/size_text_track_name</item>
     </style>
 
+    <style name="MusicPlayer.Details.Album.SimilarCategories">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/size_album_details_subcategory</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
+    <style name="MusicPlayer.Details.Album.More" />
+
+    <style name="MusicPlayer.Details.Album.More.Cover">
+        <item name="android:layout_width">@dimen/size_more_album_details_cover</item>
+        <item name="android:layout_height">@dimen/size_more_album_details_cover</item>
+    </style>
+
+    <style name="MusicPlayer.Details.Album.More.ArtistName">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="singleLine">false</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="MusicPlayer.Details.Album.More.AlbumName">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="singleLine">false</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
 </resources>

@@ -2,22 +2,26 @@
 
 package com.arshak.freeiptv.screens.authentication.view.binding
 
+import android.content.res.TypedArray
+import android.graphics.drawable.InsetDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
+import androidx.annotation.DimenRes
 import androidx.annotation.IdRes
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.arshak.core.data.local.model.AlbumUIModel
 import com.arshak.core.data.local.model.ArtistUIModel
 import com.arshak.core.data.local.model.SongsUIModel
 import com.arshak.core.data.network.model.*
 import com.arshak.core.data.viewmodel.BaseAndroidViewModel
-import com.arshak.freeiptv.utils.DTOConverter
+import com.arshak.core.view.widget.recyclerview.BaseUIModelListAdapter
 import com.arshak.freeiptv.R
 import com.arshak.freeiptv.databinding.ItemSearchResultAlbumBinding
 import com.arshak.freeiptv.databinding.ItemSearchResultArtistBinding
@@ -26,6 +30,8 @@ import com.arshak.freeiptv.screens.authentication.view.widget.listener.OnSearchC
 import com.arshak.freeiptv.screens.authentication.view.widget.listener.SearchQueryListener
 import com.arshak.freeiptv.screens.authentication.view.widget.listener.TextChangeListener
 import com.arshak.freeiptv.screens.home.viewmodel.MyMusicViewModel
+import com.arshak.freeiptv.screens.home.widget.SimpleItemDecorator
+import com.arshak.freeiptv.utils.DTOConverter
 import com.arshak.freeiptv.utils.GlideApp
 import com.arshak.freeiptv.utils.GlideUrlWithQueryParameter
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -219,4 +225,25 @@ object HomeBinding {
             binding.viewmodel = myMusicViewModel
         }
     }
+
+    @JvmStatic
+    @BindingAdapter("listAdapter")
+    fun <V : BaseUIModelListAdapter<*, *>> setListAdapter(
+        recyclerView: RecyclerView,
+        adapter: V
+    ) {
+        recyclerView.adapter = adapter
+    }
+
+    @JvmStatic
+    @BindingAdapter("divider", "isHorizontal")
+    fun setDivider(recyclerView: RecyclerView, @DimenRes dimension: Int, isHorizontal: Boolean) =
+        with(recyclerView) {
+            addItemDecoration(
+                SimpleItemDecorator(
+                    context.resources.getDimensionPixelSize(dimension),
+                    isHorizontal
+                )
+            )
+        }
 }

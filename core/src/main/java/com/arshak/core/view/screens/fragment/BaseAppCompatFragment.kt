@@ -31,7 +31,7 @@ import kotlin.reflect.KClass
  * @param VM for lazy implementation of ViewModel
  * */
 
-abstract class BaseAppCompatFragment<out VM : BaseAndroidViewModel>(
+abstract class BaseAppCompatFragment<VM : BaseAndroidViewModel>(
     @LayoutRes val layoutID: Int,
     viewModelClass: KClass<VM>
 ) : Fragment() {
@@ -61,8 +61,11 @@ abstract class BaseAppCompatFragment<out VM : BaseAndroidViewModel>(
         setupView()
     }
 
-    protected open fun observeMandatoryLiveData() {
-        activityViewModel.navigationDestinatonLiveData.observe(this, Observer {
+    protected open fun observeMandatoryLiveData() = with(activityViewModel) {
+        navigationDestinatonLiveData.observe(viewLifecycleOwner, Observer {
+            mNavigationManager.navigate(it)
+        })
+        navigationDirectionsLiveData.observe(viewLifecycleOwner, Observer {
             mNavigationManager.navigate(it)
         })
     }

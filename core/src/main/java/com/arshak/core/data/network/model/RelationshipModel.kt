@@ -10,7 +10,9 @@ import com.google.gson.annotations.SerializedName
 @Keep
 data class RelationshipModel<T>(
     @SerializedName("data")
-    val data: ResourceModel<T>,
+    val data: List<ResourceModel<T>>,
     @SerializedName("href")
-    val href: String
+    val href: String,
+    @SerializedName("next")
+    val next: String
 )
