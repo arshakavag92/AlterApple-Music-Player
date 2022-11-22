@@ -4,7 +4,7 @@ AlterApple Music Player is Open Source Music player for Android based on Apple M
 
 ## Components used for Development
 
-  - Android: Android Architecture Components, DataBinding, Android Navigation with SafeArgs
+  - Android: Android Architecture Components, DataBinding, Android Navigation, Room
   - Kotlin DSL for better Gradle dependency handling 
   - App architecture: MVVM, Modular Architecture (Feature-Based and Layer Based)
   - Dependency Injection: Koin
