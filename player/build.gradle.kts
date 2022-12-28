@@ -17,7 +17,7 @@ android {
         versionName = Config.VERSION_NAME
 
         testInstrumentationRunner = Dependencies.Tests.instrumentation_runner
-        consumerProguardFiles(Dependencies.Proguard.consumer_rules)
+//        consumerProguardFiles(Dependencies.Proguard.consumer_rules)
 
         buildTypes {
             getByName("release") {

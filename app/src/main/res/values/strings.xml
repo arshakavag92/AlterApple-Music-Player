@@ -3,7 +3,7 @@
 
     <string name="message_authorisation">Authorise to your Apple account to gain full access to your music library</string>
     <string name="button_authorisation">Login</string>
-    <string name="developer_token">eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik04TTM4WVpCVUMifQ.eyJpc3MiOiJTMjJSNVJGSFA0IiwiaWF0IjoxNTg2NDU2OTg4LCJleHAiOjE1OTQzNDA5ODh9.Il_CegEW0IxIbnJxUWU4FiosLIPQWZcogwSL_NMiEC-uzoBRkdNHcRbMmoO_cmLPq0o2ymDNUlO-blL3O_2xMw</string>
+    <string name="developer_token">eyJhbGciOiJFUzI1NiIsImtpZCI6IllGMzcyS0Y2RlMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJLQTlLN0JNSDM4IiwiaWF0IjoxNjcyMjQ2OTcxLCJleHAiOjE2NzQ4NzQ5NzF9.TC2D-4kFCiQiDw_Ce882Z3IuJLwF2p8G7oAvI7Nhpb5uNSKtMbTylofpF2e70a_CO8VqEMXPOaaQF4d9gomqWw</string>
 
     <string name="playback_notification_channel_name">Playback</string>
     <string name="notification_play">Play</string>

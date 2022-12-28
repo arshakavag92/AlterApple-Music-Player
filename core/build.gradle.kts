@@ -13,8 +13,6 @@ android {
     defaultConfig {
         minSdkVersion(Config.MIN_SDK_VERSION)
         targetSdkVersion(Config.MAX_SDK_VERSION)
-        versionCode = Config.VERSION_CODE
-        versionName = Config.VERSION_NAME
 
         testInstrumentationRunner = Dependencies.Tests.instrumentation_runner
         consumerProguardFiles(Dependencies.Proguard.consumer_rules)

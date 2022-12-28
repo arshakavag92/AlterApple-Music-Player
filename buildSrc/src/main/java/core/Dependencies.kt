@@ -7,14 +7,14 @@ object Dependencies {
         // Plugins
         const val kotlin_verion = "1.3.50"
         const val kotlin_gradle_plugin_version = "1.3.61"
-        const val gradle = "3.5.3"
+        const val gradle = "7.1.2"
 
         // AndroidX Dpendncies
         const val androidx_appcompat_version = "1.1.0"
         const val androidx_ktx_core_version = "1.1.0"
         const val androidx_constraintlayout_version = "1.1.3"
         const val androidx_lifecycle_version = "2.2.0-beta01"
-        const val androidx_navigation_version = "2.1.0"
+        const val androidx_navigation_version = "2.4.1"
         const val androidx_multidex_vesion = "2.0.1"
         const val androidx_preferences_version = "1.1.0"
         const val androidx_media_version = "1.0.0"
